@@ -20,7 +20,7 @@ var inital = new Date().getTime();
 let ping = await conn.sendMessage(from , { text: '*ᴍᴀʟᴠɪɴ xᴍᴅ sᴘᴇᴇᴅ........*'  }, { quoted: mek } )
 var final = new Date().getTime();
 await conn.sendMessage(from, { delete: ping.key })
-return await conn.sendMessage(from , { text: '*☄️Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek } )
+return await conn.sendMessage(from , { text: '*☄️Pong*\n *' + (final - inital) + ' ms*\n\n>*ꜱɪʟᴠᴀ ᴍᴅ* '  }, { quoted: mek } )
 } catch (e) {
 reply('*Error !!*')
 l(e)
