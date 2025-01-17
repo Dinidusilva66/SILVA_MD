@@ -14,7 +14,7 @@ const { fetchJson } = require('../lib/functions');
 cmd({
   pattern: 'tinyurl',
   alias: ['tiny', 'shorten', 'short', 'shorturl'],
-  react: '🪤',
+  react: '🤏',
   desc: 'Shorten a URL using TinyURL or ShortURL.',
   category: 'main',
   filename: __filename
