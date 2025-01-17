@@ -18,7 +18,7 @@ cmd({
 
     pattern: "allmenu",
 
-    react: "🛸",
+    react: "📄",
 
     alias: ["panel","commands"],
 
@@ -35,29 +35,25 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 
 try{
-let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
+let madeMenu = `
 
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
 
      *${pushname}*
-     
-╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
  *ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍᴀʟᴠɪɴ xᴍᴅ ғᴜʟʟ ᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ*
 
 *ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴋɪɴɢ👨🏻‍💻*
 
 
-╭─────────────···▸*
-*❖│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-*❖│▸* *ᴍᴏᴅᴇ* : *[${config.MODE}]*
-*❖│▸* *ᴘʀᴇғɪx* : *[${config.PREFIX}]*
-*❖│▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*❖│▸* *ɴᴀᴍᴇ ʙᴏᴛ* : *❖ᴍᴀʟᴠɪɴ xᴍᴅ❖*
-*❖│▸* *ᴄʀᴇᴀᴛᴏʀ* : *➺ᴍᴀʟᴠɪɴ ᴋɪɴɢ࿐*
-*❖│▸* *ᴠᴇʀsɪᴏɴs* : *ᴠ.2.0.0*
-*❖│▸* *ᴍᴇɴᴜ ᴄᴍᴅ* : *ᴍᴇɴᴜ ʟɪsᴛ*
-*╰────────────···▸▸*
+*🔺* *\`ʀᴜɴᴛɪᴍᴇ\`* : ${runtime(process.uptime())}
+*🔺* *\`ᴍᴏᴅᴇ`\* : *[${config.MODE}]*
+*🔺* *\`ᴘʀᴇғɪx`\* : *[${config.PREFIX}]*
+*🔺* *\`ʀᴀᴍ ᴜsᴇ`\* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*🔺* *\`ɴᴀᴍᴇ ʙᴏᴛ`\* : *❖ᴍᴀʟᴠɪɴ xᴍᴅ❖*
+*🔺* *\`ᴄʀᴇᴀᴛᴏʀ`\* : *➺ᴍᴀʟᴠɪɴ ᴋɪɴɢ*
+*🔺* *\`ᴠᴇʀsɪᴏɴs`\* : *ᴠ.2.0.0*
+*🔺* *\`ᴍᴇɴᴜ ᴄᴍᴅ`\* : *ᴍᴇɴᴜ ʟɪsᴛ*
 
 *♡︎•━━━ᴀʟʟ ᴍᴇɴᴜ ᴄᴏᴍᴍᴀɴᴅs━━━•♡︎*
 
