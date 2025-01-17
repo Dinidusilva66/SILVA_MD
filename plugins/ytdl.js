@@ -26,21 +26,21 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const data = search.videos[0];
         const url = data.url;
 
-        let desc = `*💚🎵 𝐘𝐓 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐑 🎵💚*
+        let desc = `*ꜱɪʟᴠᴀ ᴍᴅ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥*
         
-> *\`➤ Title\` :* ${data.title}
+☘️ *\`Title\` ➜ * ${data.title}
 
-> *\`➤ Views\` :* ${data.views}
-> *\`➤ DESCRIPTION\`:* ${data.description}
-> *\`➤ TIME\`:* ${data.timestamp}
-> *\`➤ AGO\`:* ${data.ago}
+👁 *\`Views\` ➜ * ${data.views}
+⏳ *\`TIME\`:* ${data.timestamp}
+⏱️ *\`AGO\`:* ${data.ago}
+📄 \`DESCRIPTION\`:* ${data.description}
 
-*◄❪ Reply This Message With Nambars ❫►*
+*Reply This Message With Nambars*
 
-1. Video 🎬
-2. Document 🗂️
+*1. Video 🎬*
+*2. Document 🗂️*
 
-> *⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : ©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚*
+> *ꜱɪʟᴠᴀ ᴍᴅ*
 `;
 
         const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
@@ -60,7 +60,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     const downloadUrl = response.data.dl_link;
 
 
-await conn.sendMessage(from,{video:{url: downloadUrl },mimetype:"video/mp4",caption :"> ⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : ©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚"},{quoted:mek})
+await conn.sendMessage(from,{video:{url: downloadUrl },mimetype:"video/mp4",caption :"> ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ ʙʏ ꜱɪʟᴠᴀ ᴍᴅ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ"},{quoted:mek})
                         break;
        
                     case '2':               
