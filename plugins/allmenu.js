@@ -170,8 +170,7 @@ let madeMenu = `
 
 📄 *ᴛᴏᴛᴀʟ ᴄᴏᴍᴍᴀɴᴅs ʟɪsᴛ ᴏᴛʜᴇʀ 100+*
 
-> *ꜱɪʟᴠᴀ ᴍᴅ*
-`
+> *ꜱɪʟᴠᴀ ᴍᴅ*`
 
 await conn.sendMessage(from,{image:{url:config.MENU_IMG},caption:madeMenu},{quoted:mek})
 
