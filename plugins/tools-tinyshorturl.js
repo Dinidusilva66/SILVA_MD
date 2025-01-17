@@ -45,7 +45,7 @@ cmd({
   try {
     if (!q) return reply('Please provide a URL to shorten.');
 
-    await reply('> *Malvin Xmd Processing...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Processing...*');
 
     let apiUrl = '';
     if (command === 'tiny' || command === 'tinyurl') {
@@ -54,12 +54,12 @@ cmd({
       apiUrl = `https://api.giftedtech.web.id/api/tools/shorturl?apikey=gifted&url=${encodeURIComponent(q)}`;
     }
 
-    await reply('> *ХᎷᎠ Shortening URL...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Shortening URL...*');
 
     const response = await fetchJson(apiUrl);
     const result = response.result;
 
-    const caption = ` \`MALVIN URL SHORTENER\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀 `;
+    const caption = ` \`ꜱɪʟᴠᴀ ᴍᴅ ᴜʀʟ ꜱʜᴏʀᴛɴᴇʀ\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀 `;
 
     await conn.sendMessage(m.chat, { text: caption }, { quoted: m });
   } catch (error) {
