@@ -69,7 +69,7 @@ await conn.sendMessage(from,{video:{url: downloadUrl },mimetype:"video/mp4",capt
     
     const downloadUrlx = responsex.data.dl_link;
 
-await conn.sendMessage(from,{document:{url: downloadUrlx },mimetype:"video/mp4",fileName: data.title + ".mp4",caption :"> ⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : ©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚"},{quoted:mek})
+await conn.sendMessage(from,{document:{url: downloadUrlx },mimetype:"video/mp4",fileName: data.title + ".mp4",caption :"> *ꜱɪʟᴠᴀ ᴍᴅ*"},{quoted:mek})
                         break;
  
                     default:
