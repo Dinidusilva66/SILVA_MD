@@ -10,16 +10,14 @@ cmd(
     use: '.menu',
     filename: __filename,
   },
-  async (conn, mek, m, { from, quoted, reply }) => {
+  async (conn, mek, m, { from, reply }) => {
     try {
-      // Check if it's a reply
-      if (quoted && quoted.text) {
-        const replyMessage = quoted.text.trim(); // Get the reply text
+      // Reply message check
+      const userReply = mek.message?.conversation?.trim();
 
-        if (replyMessage === '1') {
-          // Download Menu
-          const downloadMenu = `
-*𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦*
+      if (userReply === '1') {
+        const downloadMenu = `
+*🌟 DOWNLOAD COMMANDS 🌟*
 ■ *.apk*
 ■ *.twitter*
 ■ *.gdrive*
@@ -30,30 +28,20 @@ cmd(
 ■ *.song*
 ■ *.video*
 ■ *.yt*
-          `;
-          await conn.sendMessage(
-            from,
-            { text: downloadMenu },
-            { quoted: mek }
-          );
-          return;
-        } else if (replyMessage === '2') {
-          // Convert Menu
-          const convertMenu = `
-*𝗖𝗢𝗡𝗩𝗘𝗥𝗧 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦*
+        `;
+        await conn.sendMessage(from, { text: downloadMenu }, { quoted: mek });
+        return;
+      } else if (userReply === '2') {
+        const convertMenu = `
+*🌟 CONVERT COMMANDS 🌟*
 ■ *.convert*
 ■ *.ss*
-          `;
-          await conn.sendMessage(
-            from,
-            { text: convertMenu },
-            { quoted: mek }
-          );
-          return;
-        } else if (replyMessage === '3') {
-          // Group Menu
-          const groupMenu = `
-*𝗚𝗥𝗢𝗨𝗣 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦*
+        `;
+        await conn.sendMessage(from, { text: convertMenu }, { quoted: mek });
+        return;
+      } else if (userReply === '3') {
+        const groupMenu = `
+*🌟 GROUP COMMANDS 🌟*
 ■ *.promote*
 ■ *.demote*
 ■ *.kick*
@@ -63,33 +51,24 @@ cmd(
 ■ *.tagall*
 ■ *.mute*
 ■ *.unmute*
-          `;
-          await conn.sendMessage(
-            from,
-            { text: groupMenu },
-            { quoted: mek }
-          );
-          return;
-        } else {
-          reply('⚠️ Please reply with a valid option (1, 2, or 3).');
-          return;
-        }
+        `;
+        await conn.sendMessage(from, { text: groupMenu }, { quoted: mek });
+        return;
       }
 
-      // Main Menu Message
+      // Main menu
       const mainMenu = `
-*🌟 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 🌟*
+*🌟 MAIN MENU 🌟*
 1. Download Menu
 2. Convert Menu
 3. Group Menu
 
 _Reply with the respective number (e.g., 1) to view more commands._
       `;
-
       await conn.sendMessage(from, { text: mainMenu }, { quoted: mek });
     } catch (e) {
-      console.log(e);
-      reply(`⚠️ Error: ${e.message}`);
+      console.error(e);
+      await reply(`⚠️ Error: ${e.message}`);
     }
   }
 );
