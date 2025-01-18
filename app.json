@@ -34,13 +34,13 @@
     "ALIVE_IMG": {
       "description": "paste your image url if you don't have you can use this public url.",
       "required": false,
-      "value": "https://files.catbox.moe/7pg2gp.jpg"
+      "value": "https://i.ibb.co/JByLSYV/20250118-132759.jpg"
     }, 
     
     "LIVE_MSG": {
       "description": "paste your alive message hear.",
       "required": false,
-      "value": "> *ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ᴀʟɪᴠᴇ*⚡"
+      "value": "> *ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ᴀʟɪᴠᴇ*"
     },
     
     "MODE": {
