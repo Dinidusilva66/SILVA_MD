@@ -49,11 +49,11 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             await conn.sendMessage(from, {
                 image: buffer,
                 caption: `
-*💗 Image ${i + 1} from your search! 💗*
+*▫ Image ${i + 1} from your search*
 
- *©  ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ xᴍᴅ! 👾*
+ *_ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ꜱɪʟᴠᴀ ᴍᴅ_*
 
-> 🚀 ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs 🚀`
+> *ꜱɪʟᴠᴀ ᴍᴅ*`
 }, { quoted: mek });
 }
 
@@ -62,4 +62,3 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         reply(`Error: ${e.message}`);
     }
 });
-*/
