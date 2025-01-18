@@ -30,10 +30,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         
 ☘️ *\`➤ ᴛɪᴛʟᴇ\` ➜* ${data.title}
 
-👁 *\`➤ ᴠɪᴇᴡꜱ\` ➜* ${data.views}
-📄 *\`➤ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ\`➜* ${data.description}
-⏱️ *\`➤ ᴛɪᴍᴇ\`➜* ${data.timestamp}
-⌛ *\`➤ ᴀɢᴏ\`➜* ${data.ago}
+👁 *\`➤ ᴠɪᴇᴡꜱ\` ➜* *${data.views}*
+⏱️ *\`➤ ᴛɪᴍᴇ\` ➜* *${data.timestamp}*
+⌛ *\`➤ ᴀɢᴏ\` ➜* *${data.ago}*
+📄 *\`➤ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ\` ➜* *${data.description}*
 
 *_Reply This Message With Nambars_*
 
