@@ -1,7 +1,7 @@
 {
   "name": "MALVIN-XMD",
   "description": "Jᴀᴠᴀsᴄʀɪᴘᴛ Wʜᴀᴛsᴀᴘᴘ Bᴏᴛ Mᴀᴅᴇ Bʏ Mʀ Mᴀʟᴠɪɴ",
-  "logo": "https://i.ibb.co/JByLSYV/20250118-132759.jpg",
+  "logo": "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg",
   "keywords": ["ᴍᴀʟᴠɪɴ-xᴍᴅ","watsappbot","malvin xmd"],
   "success_url": "/",
 
@@ -28,13 +28,13 @@
     "MENU_IMG": {
       "description": "paste your image url if you don't have you can use this bot url.",
       "required": false,
-      "value": "https://i.ibb.co/JByLSYV/20250118-132759.jpg"
+      "value": "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg"
     },   
     
     "ALIVE_IMG": {
       "description": "paste your image url if you don't have you can use this public url.",
       "required": false,
-      "value": "https://i.ibb.co/JByLSYV/20250118-132759.jpg"
+      "value": "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg"
     }, 
     
     "LIVE_MSG": {
