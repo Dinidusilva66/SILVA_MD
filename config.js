@@ -29,10 +29,10 @@ AUTO_STATUS_MSG: process.env.AUTO_STATUS__MSG || "*Jᴜsᴛ Nᴏᴡ Sᴛᴀᴛ�
 PREFIX: process.env.PREFIX || ".",
 // add your prifix for bot   
 
-BOT_NAME: process.env.BOT_NAME || "MALVIN-XMD",
+BOT_NAME: process.env.BOT_NAME || "SILVA MD",
 // add bot namw here for menu
 
-STICKER_NAME: process.env.STICKER_NAME || "MALVIN-XMD",
+STICKER_NAME: process.env.STICKER_NAME || "SILVA MD",
 // type sticker pack name 
 
 CUSTOM_REACT: process.env.CUSTOM_REACT || "false",
@@ -53,10 +53,10 @@ OWNER_NAME: process.env.OWNER_NAME || "SILVA MD | DINIDU SILVA",
 DESCRIPTION: process.env.DESCRIPTION || "*ꜱɪʟᴠᴀ ᴍᴅ*",
 // add bot owner name 
 
-MENU_IMG: process.env.MENU_IMG || "https://i.ibb.co/JByLSYV/20250118-132759.jpg",
+MENU_IMG: process.env.MENU_IMG || "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg",
 //Don't change menu image ⚠️
 
-ALIVE_IMG: process.env.ALIVE_IMG || "https://i.ibb.co/JByLSYV/20250118-132759.jpg",
+ALIVE_IMG: process.env.ALIVE_IMG || "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg",
 // add img for alive msg
 
 LIVE_MSG: process.env.LIVE_MSG || "> *ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ᴀʟɪᴠᴇ*",
