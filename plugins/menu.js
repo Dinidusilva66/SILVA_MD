@@ -12,8 +12,8 @@ cmd(
   },
   async (conn, mek, m, { from, quoted, reply }) => {
     try {
-      // Handle Reply-based Menus
-      if (quoted) {
+      // Check if there is a quoted message
+      if (quoted && quoted.body) {
         const replyMessage = quoted.body.trim();
         if (replyMessage === '1') {
           // Download Menu
