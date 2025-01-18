@@ -28,7 +28,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         let desc = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
         
-☘️ *\`➤ ᴛɪᴛʟᴇ\` ➜* ${data.title}
+☘️ *\`➤ ᴛɪᴛʟᴇ\` ➜* *${data.title}*
 
 👁 *\`➤ ᴠɪᴇᴡꜱ\` ➜* *${data.views}*
 ⏱️ *\`➤ ᴛɪᴍᴇ\` ➜* *${data.timestamp}*
