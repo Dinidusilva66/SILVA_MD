@@ -15,7 +15,7 @@ const {cmd , commands} = require('../command')
 //============= SUPUN MD MENU ==============
 
 cmd({
-    pattern: "menu3",
+    pattern: "menu2",
     desc: "downlod song",
     category: "downlod",
     filename: __filename
@@ -23,7 +23,7 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let pan = `> 𝐒𝐔𝐏𝐔𝐍 𝐌𝐃`;
+let pan = `> *ꜱɪʟᴠᴀ ᴍᴅ ᴍᴇɴᴜ2`;
 const url = "https://i.ibb.co/bHXBV08/9242c844b83f7bf9.jpg"
 async function image(url) {
   const { imageMessage } = await generateWAMessageContent({
@@ -61,7 +61,7 @@ let msg = generateWAMessageFromContent(
                   buttons: [
                     {
       "name": "quick_reply",
-      "buttonParamsJson": `{"display_text":"Alive ?",
+      "buttonParamsJson": `{"display_text":".alive",
       "id": ".alive"}`
              },
                     {
