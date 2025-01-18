@@ -1,7 +1,7 @@
 {
   "name": "MALVIN-XMD",
   "description": "Jᴀᴠᴀsᴄʀɪᴘᴛ Wʜᴀᴛsᴀᴘᴘ Bᴏᴛ Mᴀᴅᴇ Bʏ Mʀ Mᴀʟᴠɪɴ",
-  "logo": "https://files.catbox.moe/7pg2gp.jpg",
+  "logo": "https://i.ibb.co/JByLSYV/20250118-132759.jpg",
   "keywords": ["ᴍᴀʟᴠɪɴ-xᴍᴅ","watsappbot","malvin xmd"],
   "success_url": "/",
 
@@ -16,7 +16,7 @@
     "STICKER_NAME": {
       "description": "type your sticker pack name.",
       "required": false,
-      "value": "𝙼𝙰𝙻𝚅𝙸𝙽-𝚇𝙼𝙳"
+      "value": "SILVA MD"
     }, 
       
     "PREFIX": {
@@ -28,7 +28,7 @@
     "MENU_IMG": {
       "description": "paste your image url if you don't have you can use this bot url.",
       "required": false,
-      "value": "https://files.catbox.moe/7pg2gp.jpg"
+      "value": "https://i.ibb.co/JByLSYV/20250118-132759.jpg"
     },   
     
     "ALIVE_IMG": {
@@ -40,7 +40,7 @@
     "LIVE_MSG": {
       "description": "paste your alive message hear.",
       "required": false,
-      "value": "> ɴᴇᴠᴇʀ ᴀʟɪᴠᴇ ʙᴜᴛ ᴀᴡᴀᴋᴇ Mᴀʟᴠɪɴ-Xᴍᴅ⚡"
+      "value": "> *ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ᴀʟɪᴠᴇ*⚡"
     },
     
     "MODE": {
@@ -91,27 +91,27 @@
     "AUTO_STATUS_MSG": {
       "description": "Type custom message on status reply",
       "required": true,
-      "value": "*Jᴜsᴛ Nᴏᴡ Sᴛᴀᴛᴜs Sᴇᴇɴ Bʏ 😎Mᴀʟᴠɪɴ-Xᴍᴅ*"
+      "value": "*boss eka Lassnai hamadama me wage status dnna 🫡*"
    
      }, 
     
     "OWNER_NAME": {
       "description": "Type Bot Owner Name.",
       "required": false,
-      "value": "Mʀ Mᴀʟᴠɪɴ"
+      "value": "SILVA MD | DINIDU SILVA"
 }, 
 
     "OWNER_NUMBER": {
       "description": "put the owner number for bot.",
       "required": false,
-      "value": "263714757857"
+      "value": "94710164941"
 
     }, 
 
     "BOT_NAME": {
       "description": "Type here the bot name.",
       "required": false,
-      "value": "𝙼𝙰𝙻𝚅𝙸𝙽-𝚇𝙼𝙳"
+      "value": "ꜱɪʟᴠᴀ ᴍᴅ"
 
       }, 
 
@@ -131,7 +131,7 @@
      "DESCRIPTION": {
       "description": "add caption for menu and other",
       "required": false,
-      "value": "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ Mʀ Mᴀʟᴠɪɴ*"
+      "value": "*ꜱɪʟᴠᴀ ᴍᴅ*"
     },
 
       "DELETE_LINKS": {
