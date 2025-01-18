@@ -12,9 +12,10 @@ cmd(
   },
   async (conn, mek, m, { from, quoted, reply }) => {
     try {
-      // Check if there is a quoted message
-      if (quoted && quoted.body) {
-        const replyMessage = quoted.body.trim();
+      // Check if it's a reply
+      if (quoted && quoted.text) {
+        const replyMessage = quoted.text.trim(); // Get the reply text
+
         if (replyMessage === '1') {
           // Download Menu
           const downloadMenu = `
@@ -70,13 +71,12 @@ cmd(
           );
           return;
         } else {
-          // Invalid Reply
-          reply('Please reply with a valid option (1, 2, or 3).');
+          reply('⚠️ Please reply with a valid option (1, 2, or 3).');
           return;
         }
       }
 
-      // Default Main Menu
+      // Main Menu Message
       const mainMenu = `
 *🌟 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 🌟*
 1. Download Menu
@@ -89,7 +89,7 @@ _Reply with the respective number (e.g., 1) to view more commands._
       await conn.sendMessage(from, { text: mainMenu }, { quoted: mek });
     } catch (e) {
       console.log(e);
-      reply(`${e}`);
+      reply(`⚠️ Error: ${e.message}`);
     }
   }
 );
