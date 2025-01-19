@@ -34,7 +34,7 @@ async(conn, mek, m, {from, quoted, body, isCmd, command, args, q, isGroup, sende
         let uploadedFile = await shannzCdn(filePath);
         
         if (uploadedFile && uploadedFile.status && uploadedFile.result?.url) {
-            const message = `*✅ SUCCESSFUL UPLOAD!*\n\n🔗 *DIRECT LINK:*\n${uploadedFile.result.url}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ xᴍᴅ`;
+            const message = `*✅ SUCCESSFUL UPLOAD!*\n\n🔗 *DIRECT LINK:*\n${uploadedFile.result.url}\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`;
             await conn.sendMessage(from, { text: message });
         } else {
             await reply("*❌ Failed to upload the file or retrieve the link.*");
