@@ -14,7 +14,7 @@ const { fetchJson } = require('../lib/functions');
 cmd({
   pattern: 'tinyurl',
   alias: ['tiny', 'shorten', 'short', 'shorturl'],
-  react: '🪤',
+  react: '🤏',
   desc: 'Shorten a URL using TinyURL or ShortURL.',
   category: 'main',
   filename: __filename
@@ -54,12 +54,12 @@ cmd({
       apiUrl = `https://api.giftedtech.web.id/api/tools/shorturl?apikey=gifted&url=${encodeURIComponent(q)}`;
     }
 
-    await reply('> *ХᎷᎠ Shortening URL...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Shortening URL...*');
 
     const response = await fetchJson(apiUrl);
     const result = response.result;
 
-    const caption = ` \`MALVIN URL SHORTENER\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀 `;
+    const caption = ` \`MALVIN URL SHORTENER\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> *ꜱɪʟᴠᴀ ᴍᴅ* `;
 
     await conn.sendMessage(m.chat, { text: caption }, { quoted: m });
   } catch (error) {
