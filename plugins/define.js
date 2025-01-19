@@ -32,12 +32,12 @@ const axios = require('axios');
                                  const synonyms = definitionData.meanings[0].definitions[0].synonyms.join(', ') || 'No synonyms available';
 
 const wordInfo = `
-📚 *ᴡᴏʀᴅ*: ${definitionData.word}
-🔍 *ᴅᴇғɪɴᴀᴛɪᴏɴ*: ${definition}
-📝 *ᴇxᴀᴍᴘʟᴇ*: ${example}
-🔗 *sʏɴᴏɴʏᴍs*: ${synonyms}
+📚 *ᴡᴏʀᴅ* ➜ *${definitionData.word}*
+🔍 *ᴅᴇғɪɴᴀᴛɪᴏɴ* ➜ *${definition}*
+📝 *ᴇxᴀᴍᴘʟᴇ* ➜ *${example}*
+🔗 *sʏɴᴏɴʏᴍs* ➜ *${synonyms}*
 
-> *© ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴡᴀ ᴄʜᴀɴɴᴇʟ🚀*`;
+> *ꜱɪʟᴠᴀ ᴍᴅ*`;
 
                                  return reply(wordInfo);
                              } catch (e) {
