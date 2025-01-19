@@ -12,7 +12,7 @@ const { fetchBuffer } = require('../lib/functions');
 cmd({
   pattern: 'qrcode',
   alias: ['qr'],
-  react: '💙',
+  react: '⬜',
   desc: 'Generate a QR code.',
   category: 'main',
   filename: __filename
@@ -43,7 +43,7 @@ cmd({
   try {
     if (!q) return reply('Please provide text to generate QR code.');
 
-    await reply('> *Malvin Xmd Generating QR code...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Generating QR code...*');
 
     const response = await fetchBuffer(`https://api.giftedtech.web.id/api/tools/createqr?apikey=gifted&text=${encodeURIComponent(q)}`);
 
