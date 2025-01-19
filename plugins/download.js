@@ -1038,7 +1038,7 @@ cmd({
                     },
                     'mimetype': "video/mp4",
                     'fileName': _0x4bd79a.title + " - " + _0x2677a1.quality + '.mp4',
-                    'caption': "🏷️ *" _0x4bd79a.title + "*\n`*_" + _0x2677a1.quality + "_*`\n\n > *ᴄʜᴀʟᴀʜ ᴍᴅ ᴏꜰᴄ*",
+                    'caption': "🏷️ *" _0x4bd79a.title + "*\n\`*_" + _0x2677a1.quality + "_*\`\n\n > *ᴄʜᴀʟᴀʜ ᴍᴅ ᴏꜰᴄ*",
                     'contextInfo': {
                       'mentionedJid': [],
                       'externalAdReply': {
