@@ -25,15 +25,16 @@ async (conn, mek, m, { from, q, reply }) => {
         const response = await axios.get(url);
         const data = response.data;
         const weather = `
-❓️ *Weather Information for ${data.name}, ${data.sys.country}* 🌍
-💛 *Temperature*: ${data.main.temp}°C
-❓️ *Humidity*: ${data.main.humidity}%
-💛 *Weather*: ${data.weather[0].main}
-❓️ *Description*: ${data.weather[0].description}
-⚡️ *Wind Speed*: ${data.wind.speed} m/s
-❓️ *Pressure*: ${data.main.pressure} hPa
+■ *Weather Information for ${data.name}, ${data.sys.country}* 🌍
 
-> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ*
+▫ *Temperature* ➜ *${data.main.temp}°C*
+▫ *Humidity* ➜ *${data.main.humidity}%*
+▫ *Weather* ➜ *${data.weather[0].main}*
+▫ *Description* ➜ *${data.weather[0].description}*
+▫ *Wind Speed* ➜ *${data.wind.speed} m/s*
+▫ *Pressure* ➜ *${data.main.pressure} hPa*
+
+> *ꜱɪʟᴠᴀ ᴍᴅ*
 `;
         return reply(weather);
     } catch (e) {
