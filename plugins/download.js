@@ -862,7 +862,7 @@ cmd({
                   },
                   'mimetype': "video/mp4",
                   'fileName': "ᴍʀ ᴍᴀʟᴠɪɴ | " + _0x1d0aed.title + '.mp4',
-                  'caption': _0x1d0aed.title + " |  *ᴍʀ ᴋɪɴɢ *\n\n> ©>ᴍaʟᴠɪɴxᴍᴅ"
+                  'caption': _0x1d0aed.title + "\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*"
                 }, {
                   'quoted': _0x171143
                 });
@@ -924,7 +924,7 @@ cmd({
     let _0xd49d48 = '.' + _0x9dad20;
     let _0x1d38a3 = _0x35ebe9.datalist.list[0x0].size / 0xf4240;
     let _0x5a853a = _0x1d38a3 - _0xd49d48;
-    let _0x408ceb = "\n*❄️ ᴍaʟᴠɪɴxᴍᴅ Aᴘᴘ Sᴛᴏʀᴇ ❄️*  \n*🛠️ ɴᴀᴍᴇ :* " + _0x35ebe9.datalist.list[0x0].name + "\n\n*🗂️ sɪᴢᴇ :* " + _0x5a853a + "MB\n\n*🔗 ᴘᴀᴄᴋᴀɢᴇ :* " + _0x35ebe9.datalist.list[0x0]['package'] + "\n\n*📆 Lᴀꜱᴛ ᴜᴘᴅᴀᴛᴇ :* " + _0x35ebe9.datalist.list[0x0].updated + "\n\n*👤 ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ :* " + _0x35ebe9.datalist.list[0x0].developer.name + "\n\n> © Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ ʟᴏʀᴅxᴍᴅ\n";
+    let _0x408ceb = "\n*ꜱɪʟᴠᴀ ᴍᴅ Aᴘᴘ Sᴛᴏʀᴇ*  \n*🛠️ ɴᴀᴍᴇ :* " + _0x35ebe9.datalist.list[0x0].name + "\n\n*🗂️ sɪᴢᴇ :* " + _0x5a853a + "MB\n\n*🔗 ᴘᴀᴄᴋᴀɢᴇ :* " + _0x35ebe9.datalist.list[0x0]['package'] + "\n\n*📆 Lᴀꜱᴛ ᴜᴘᴅᴀᴛᴇ :* " + _0x35ebe9.datalist.list[0x0].updated + "\n\n*👤 ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ :* " + _0x35ebe9.datalist.list[0x0].developer.name + "\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n";
     await _0x3cbff5.react('⬆');
     await _0x56da32.sendMessage(_0xbd3b9f, {
       'document': {
@@ -1133,7 +1133,7 @@ cmd({
         },
         'mimetype': _0x5736f7.data.result.mimetype,
         'fileName': _0x5736f7.data.result.fileName,
-        'caption': "*© Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ ᴍaʟᴠɪɴxᴍᴅ*\n\n> 2025 • ᴍaʟᴠɪɴ xᴍᴅ ✻"
+        'caption': "*Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ ꜱɪʟᴠᴀ ᴍᴅ*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*"
       }, {
         'quoted': _0x5afcc4
       });
