@@ -19,18 +19,16 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let status = `*⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
+let status = `*ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ*
 
-     *${pushname}*, am alive 
-*╭─────────────···▸*
-*┋▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-*┋▸* *ʜᴏsᴛɴᴀᴍᴇ* : *[${os.hostname()}]*
-*┋▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*┋▸* *ɴᴀᴍᴇ ʙᴏᴛ* : *🚀ᴍᴀʟᴠɪɴ xᴍᴅ 🚀*
-*┋*
-*╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷*
+     *${pushname}*,
 
-> ©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴋɪɴɢ*
+■ *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
+■ *ʜᴏsᴛɴᴀᴍᴇ* : *[${os.hostname()}]*
+■ *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+■ *ɴᴀᴍᴇ ʙᴏᴛ* : *ꜱɪʟᴠᴀ ᴍᴅ*
+
+> *ꜱɪʟᴠᴀ ᴍᴅ*
 `
 await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:`${status}`},{quoted:mek})
 
