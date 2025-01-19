@@ -47,7 +47,7 @@ cmd({
     const text = body.trim().replace(command, '').trim();
     if (!text) return reply(`*Example*: ${command} https://www.mediafire.com/file/n6tgcrktbnov1oy/Queen_Anita-V4.zip/file`);
 
-    await reply('> *Mᴀʟᴠɪɴ Xᴍᴅ Processing...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Processing...*');
 
     const apiUrl = `https://api.davidcyriltech.my.id/mediafire?url=${encodeURIComponent(text)}`;
 
@@ -67,7 +67,7 @@ cmd({
             document: { url: downloadLink },
             mimetype: mimeType,
             fileName: fileName,
-            caption: `📦 *File Name:* ${fileName}\n\n> 🚀ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀`
+            caption: `📦 *File Name:* *${fileName}*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`
           }, { quoted: m });
           return;
         } else {
@@ -142,7 +142,7 @@ cmd({
           document: { url: downloadLink },
           mimetype: mimeType,
           fileName: fileName,
-          caption: `📦 *File Name:* ${fileName}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀᴠɪᴅ ᴄʏʀɪʟ ᴛᴇᴄʜ`
+          caption: `📦 *File Name:* *${fileName}\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`
         }, { quoted: m });
       } else {
         reply(`*Failed to fetch file details! Please check the MediaFire URL and try again.*`);
