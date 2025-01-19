@@ -26,20 +26,20 @@ const url = data.url
     
     
 let desc = `
-╭─┈┄┄┉┉┉┅┅┅┅──┅┅┅┅┅┅╮
-  *ᴍaʟᴠɪɴ ᴍᴅ sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
-╰─┈┄┄┉┉┉┅┅┅┅──┅┅┅┅┅┅╯
+┏━━━━━━━━━━━━━━━┓
+ *ꜱɪʟᴠᴀ ᴍᴅ sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+┗━━━━━━━━━━━━━━━┛
 
-➥ *ᴛɪᴛʟᴇ:* ${data.title} 
-➥ *ᴅᴜʀᴀᴛɪᴏɴ:* ${data.timestamp} 
-➥ *ᴠɪᴇᴡs:* ${data.views} 
-➥ *ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ:* ${data.ago} 
-➥ *ʟɪɴᴋ:* ${data.url} 
-
-╰─┈┄┄┉┉┉┅┅┅┅──┅┅┅┅┅┅◊
+┏━━━━━━━━━━━━━━━┓
+┣ *ᴛɪᴛʟᴇ ➜* *${data.title}* 
+┣ *ᴅᴜʀᴀᴛɪᴏɴ ➜* *${data.timestamp}* 
+┣ *ᴠɪᴇᴡs ➜* *${data.views}* 
+┣ *ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ ➜* *${data.ago}* 
+┣ *ʟɪɴᴋ ➜* *${data.url}*
+┗━━━━━━━━━━━━━━━┛
  
 
-> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟᴏʀᴅ ᴛᴇᴄʜ*
+> *ꜱɪʟᴠᴀ ᴍᴅ*
 `
 
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
