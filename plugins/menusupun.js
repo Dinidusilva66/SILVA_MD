@@ -24,7 +24,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 
 let pan = `> *ꜱɪʟᴠᴀ ᴍᴅ ᴏᴡɴᴇʀ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ`;
-const url = "https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp"
+const url = "https://envs.sh/HLh.jpg"
 async function image(url) {
   const { imageMessage } = await generateWAMessageContent({
     image: {
@@ -48,7 +48,7 @@ let msg = generateWAMessageFromContent(
             cards: [
               {
                 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://envs.sh/HLh.jpg' } }, { upload: conn.waUploadToServer })),
           title: ``,
           gifPlayback: true,
           subtitle: 'SUPUN FERNANDO',
