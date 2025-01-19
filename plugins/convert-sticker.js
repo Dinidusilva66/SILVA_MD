@@ -24,7 +24,7 @@ else descg = 'ɪᴛ ᴄᴏɴᴠᴇʀᴛs ʏᴏᴜʀ ʀᴇᴘʟɪᴇᴅ ᴘʜᴏ�
 
 cmd({
     pattern: 'sticker',
-    react: '🤹‍♀️',
+    react: '🔄',
     alias: ['s', 'stic'],
     desc: descg,
     category: 'convert',
@@ -58,8 +58,8 @@ cmd({
             await require('fs').promises.writeFile(nameWebp, stickerBuffer);
 
             let sticker = new Sticker(nameWebp, {
-                pack: '💙ＭＡＬＶＩＮ-ＸＭＤ🩵', // The pack name
-                author: '『ᴍʀ ᴍᴀʟᴠɪɴ ᴋɪɴɢ』', // The author name
+                pack: 'ꜱɪʟᴠᴀ ᴍᴅ', // The pack name
+                author: 'ᴍʀ ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ', // The author name
                 type: q.includes('--crop') || q.includes('-c') ? StickerTypes.CROPPED : StickerTypes.FULL,
                 categories: ['🤩', '🎉'], // The sticker category
                 id: '12345', // The sticker id
