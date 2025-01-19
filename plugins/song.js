@@ -28,12 +28,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         let desc = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
         
-☘️ *\`➤ ᴛɪᴛʟᴇ\` ➜* *${data.title}*
+☘️ *\`ᴛɪᴛʟᴇ\` ➜* *${data.title}*
 
-👁 *\`➤ ᴠɪᴇᴡꜱ\` ➜* *${data.views}*
-⏱️ *\`➤ ᴛɪᴍᴇ\` ➜* *${data.timestamp}*
-⌛ *\`➤ ᴀɢᴏ\` ➜* *${data.ago}*
-📄 *\`➤ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ\` ➜* *${data.description}*
+👁 *\`ᴠɪᴇᴡꜱ\` ➜* *${data.views}*
+⏱️ *\`ᴛɪᴍᴇ\` ➜* *${data.timestamp}*
+⌛ *\`ᴀɢᴏ\` ➜* *${data.ago}*
+📄 *\`ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ\` ➜* *${data.description}*
 
 *_Reply This Message With Nambars_*
 
