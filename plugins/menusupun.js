@@ -55,7 +55,7 @@ let msg = generateWAMessageFromContent(
           hasMediaAttachment: false
         }),
                 body: {
-                  text: `ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴛʜᴇ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ᴏꜰ ꜱɪʟᴠᴀ ᴍᴅ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ`
+                  text: `*ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴛʜᴇ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ᴏꜰ ꜱɪʟᴠᴀ ᴍᴅ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ*`
                 },
                 nativeFlowMessage: {
                   buttons: [
