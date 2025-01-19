@@ -53,7 +53,7 @@ cmd({
 
         await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: `${movieInfo}\n> > *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ*`
+            caption: `${movieInfo}\n> > *ꜱɪʟᴠᴀ ᴍᴅ*`
         }, { quoted: mek });
     } catch (e) {
         console.error(e);
