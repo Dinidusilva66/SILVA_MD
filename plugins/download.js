@@ -999,7 +999,7 @@ cmd({
             let _0x3dc978 = "🎥 *" + _0x4bd79a.title + "*\n\n";
             _0x3dc978 += "*◻️ Available PixelDrain Download Links ◻️*\n\n";
             _0x446048.forEach((_0x359c3a, _0x5298f6) => {
-              _0x3dc978 += '*' + (_0x5298f6 + 0x1) + ".* *" + _0x359c3a.quality + "* - *" + _0x359c3a.size + "*\n*🔗 Link : _" + _0x359c3a.link + "_*\n\n> *ᴄʜᴀʟᴀʜ ᴍᴅ ᴏꜰᴄ*";
+              _0x3dc978 += '*' + (_0x5298f6 + 0x1) + ".* *" + _0x359c3a.quality + "* - *" + _0x359c3a.size + "*\n*🔗 Link : _" + _0x359c3a.link + "_*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*";
             });
             const _0xf30520 = await _0x3dfd8e.sendMessage(_0x4a183a, {
               'text': _0x3dc978
@@ -1038,7 +1038,7 @@ cmd({
                     },
                     'mimetype': "video/mp4",
                     'fileName': _0x4bd79a.title + " - " + _0x2677a1.quality + '.mp4',
-                    'caption': "🏷️ *" _0x4bd79a.title + "*\n*_" + _0x2677a1.quality + "_*\n\n > *ᴄʜᴀʟᴀʜ ᴍᴅ ᴏꜰᴄ*",
+                    'caption': "🏷️ *" + _0x4bd79a.title + "*\n*" + _0x2677a1.quality + "*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*"
                     'contextInfo': {
                       'mentionedJid': [],
                       'externalAdReply': {
