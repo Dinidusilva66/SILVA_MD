@@ -16,7 +16,7 @@ const axios = require('axios')
 
 cmd({
 
-    pattern: "allmenu",
+    pattern: "menu",
 
     react: "📄",
 
@@ -26,7 +26,7 @@ cmd({
 
     category: "main",
 
-    use: '.allmenu',
+    use: '.menu',
 
     filename: __filename
 
