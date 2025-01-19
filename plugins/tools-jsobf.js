@@ -43,7 +43,7 @@ cmd({
   try {
     if (!q) return reply('Please provide JavaScript code to obfuscate.');
 
-    await reply('> *Malvin Xmd Obfuscating code...*');
+    await reply('> *ꜱɪʟᴠᴀ ᴍᴅ Obfuscating code...*');
 
     const response = await fetchJson(`https://api.giftedtech.web.id/api/tools/encrypt?apikey=gifted&code=${encodeURIComponent(q)}`);
 
