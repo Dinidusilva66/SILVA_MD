@@ -23,10 +23,10 @@ let status = `*ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ*
 
      *${pushname}*,
 
-■ *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-■ *ʜᴏsᴛɴᴀᴍᴇ* : *[${os.hostname()}]*
-■ *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-■ *ɴᴀᴍᴇ ʙᴏᴛ* : *ꜱɪʟᴠᴀ ᴍᴅ*
+■ *ʀᴜɴᴛɪᴍᴇ* ➜ ${runtime(process.uptime())}
+■ *ʜᴏsᴛɴᴀᴍᴇ* ➜ *[${os.hostname()}]*
+■ *ʀᴀᴍ ᴜsᴇ* ➜ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+■ *ɴᴀᴍᴇ ʙᴏᴛ* ➜ *ꜱɪʟᴠᴀ ᴍᴅ*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
 `
