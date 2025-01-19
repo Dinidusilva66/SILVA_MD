@@ -15,7 +15,7 @@ const {cmd , commands} = require('../command')
 //============= SUPUN MD MENU ==============
 
 cmd({
-    pattern: "menu2",
+    pattern: "owner",
     desc: "downlod song",
     category: "downlod",
     filename: __filename
@@ -23,8 +23,8 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let pan = `> *ꜱɪʟᴠᴀ ᴍᴅ ᴍᴇɴᴜ2`;
-const url = "https://i.ibb.co/bHXBV08/9242c844b83f7bf9.jpg"
+let pan = `> *ꜱɪʟᴠᴀ ᴍᴅ ᴏᴡɴᴇʀ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ`;
+const url = "https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp"
 async function image(url) {
   const { imageMessage } = await generateWAMessageContent({
     image: {
@@ -48,34 +48,20 @@ let msg = generateWAMessageFromContent(
             cards: [
               {
                 header: proto.Message.InteractiveMessage.Header.create({
-          ...(await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/bHXBV08/9242c844b83f7bf9.jpg' } }, { upload: conn.waUploadToServer })),
+          ...(await prepareWAMessageMedia({ image: { url: 'https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp' } }, { upload: conn.waUploadToServer })),
           title: ``,
           gifPlayback: true,
           subtitle: 'SUPUN FERNANDO',
           hasMediaAttachment: false
         }),
                 body: {
-                  text: `Sυρυɳ Mԃ Gιƚԋυ�? Rҽρσ\nB�? Mɾ.Sυρυɳ Fҽɾɳαɳԃσ`
+                  text: `ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴛʜᴇ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ᴏꜰ ꜱɪʟᴠᴀ ᴍᴅ | ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ`
                 },
                 nativeFlowMessage: {
                   buttons: [
-                    {
-      "name": "quick_reply",
-      "buttonParamsJson": `{"display_text":".alive",
-      "id": ".alive"}`
-             },
-                    {
-     "name": "quick_reply",
-     "buttonParamsJson": `{"display_text":"Ping ??",
-     "id": ".ping"}`
-             },
              {
                       name: "cta_url",
-                      buttonParamsJson: `{"display_text":" 🏮ωнαтѕαρρ�?","url":"https://whatsapp.com/channel/0029VaXRYlrKwqSMF7Tswi38","merchant_url":"https://whatsapp.com/channel/0029VaXRYlrKwqSMF7Tswi38"}`
-                    },
-                    {
-                      name: "cta_url",
-                      buttonParamsJson: `{"display_text":" 🏮Gιƚԋυ�?","url":"https://github.com/mrsupunfernando12/SUPUN-MD","merchant_url":"https://github.com/mrsupunfernando12/SUPUN-MD"}`
+                      buttonParamsJson: `{"display_text":"THE OWNER","url":"https://wa.me/94710164941?text=Hy","merchant_url":"https://wa.me/94710164941?text=Hy"}`
                     },
                   ],
                 },
