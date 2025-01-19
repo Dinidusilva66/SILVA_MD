@@ -53,10 +53,10 @@ OWNER_NAME: process.env.OWNER_NAME || "SILVA MD | DINIDU SILVA",
 DESCRIPTION: process.env.DESCRIPTION || "*ꜱɪʟᴠᴀ ᴍᴅ*",
 // add bot owner name 
 
-MENU_IMG: process.env.MENU_IMG || "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg",
+MENU_IMG: process.env.MENU_IMG || "https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp",
 //Don't change menu image ⚠️
 
-ALIVE_IMG: process.env.ALIVE_IMG || "https://i.ibb.co/yYsk9tZ/20250118-175001.jpg",
+ALIVE_IMG: process.env.ALIVE_IMG || "https://i.ibb.co/b6krzb5/file-4-Xo-Dgc-ZCG2y-Ucg-LY3n-Xqn-F.webp",
 // add img for alive msg
 
 LIVE_MSG: process.env.LIVE_MSG || "> *ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ᴀʟɪᴠᴇ*",
