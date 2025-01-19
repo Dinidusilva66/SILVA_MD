@@ -13,11 +13,11 @@ try{
 
 let dec = `*👋 ʜᴇʟʟᴏ ${pushname}*
           
-▧ *ᴄʀᴇᴀᴛᴏʀ* : *ᴍʀ ᴍᴀʟᴠɪɴ ᴋɪɴɢ (🇿🇼)*
+▧ *ᴄʀᴇᴀᴛᴏʀ* : *ᴍʀ ᴅɪɴɪᴅᴜ ꜱɪʟᴠᴀ (🇱🇰)*
 ▧ *ᴍᴏᴅᴇ* : *${config.MODE}*
 ▧ *ᴘʀᴇғɪx* : *${config.PREFIX}*
 ▧ *ʀᴀᴍ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-▧ *ᴠᴇʀsɪᴏɴ* : *2.0.0* ⚡
+▧ *ᴠᴇʀsɪᴏɴ* : *1.0.0* ⚡
 ▧ *ᴜᴘᴛɪᴍᴇ* : ${runtime(process.uptime())}
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
