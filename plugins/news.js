@@ -5,7 +5,7 @@ Please Give Credit 🙂❤️
 const { cmd, commands } = require('../command');
 const { fetchJson } = require('../lib/functions');
 const domain = `https://manu-ofc-api-site-6bfcbe0e18f6.herokuapp.com/`
-const api_key = `your-api-key`
+const api_key = `Manul-Official-Key-3467`
 //===== Api-Key එක මට Message එකක් දාල ඉල්ලගන්න, +94 74 227 4855 සල්ලි ගන්න නෙවේ, කීයක් Use කරනවද දැනගන්න...❤️=====
 
 //============================================
