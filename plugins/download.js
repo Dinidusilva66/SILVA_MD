@@ -942,9 +942,8 @@ cmd({
     _0x31b608('' + _0x26a136);
   }
 });
-const {
-  sinhalaSub
-} = require("mrnima-moviedl");
+const { sinhalaSub } = require("mrnima-moviedl");
+const axios = require("axios"); // Ensure axios is imported
 cmd({
   'pattern': "sinhalasub",
   'alias': ["movie"],
@@ -1038,7 +1037,7 @@ cmd({
                     },
                     'mimetype': "video/mp4",
                     'fileName': _0x4bd79a.title + " - " + _0x2677a1.quality + '.mp4',
-                    'caption': "🏷️ *" + _0x4bd79a.title + "*\n*" + _0x2677a1.quality + "*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*"
+                    'caption': "🏷️ *" + _0x4bd79a.title + "*\n*" + _0x2677a1.quality + "*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*",
                     'contextInfo': {
                       'mentionedJid': [],
                       'externalAdReply': {
