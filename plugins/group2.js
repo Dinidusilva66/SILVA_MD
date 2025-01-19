@@ -34,7 +34,7 @@ if (!isAdmins) return reply(ADMIN)
                 reply(`Open time ${q} starting from now`)
                 setTimeout(() => {
                     var nomor = mek.participant
-                    const open = `*OPEN TIME* 𝚃𝙶𝙴 𝙶𝚁𝙾𝚄𝙿 𝚆𝙰𝚂 𝙾𝙿𝙴𝙽𝙴𝙳 𝙱𝚈 𝙼𝙰𝙻𝚅𝙸𝙽 𝚇𝙼𝙳 𝚃𝙾 𝙰𝙿𝙿𝚁𝙾𝚅𝙴𝙳 𝙰𝙳𝙼𝙸𝙽\n𝙽𝙾𝚆 𝙼𝙴𝙼𝙱𝙴𝚁𝚂 𝙲𝙰𝙽 𝚂𝙴𝙽𝙳 𝙼𝙴𝚂𝚂𝙰𝙶𝙴𝚂 🔓`
+                    const open = `𝗢𝗣𝗘𝗠 𝗧𝗜𝗠𝗘\n\nᴛʜᴇ ɢʀᴏᴜᴘ ᴡᴀꜱ ᴏᴘᴘᴇɴᴇᴅ ʙʏ ꜱɪʟᴠᴀ ᴍᴅ ᴀᴘᴘʀᴏᴠᴇᴅ ᴀᴅᴍɪɴ\nɴᴏᴡ ᴍᴇᴍʙᴇʀꜱ ᴄᴀɴ ꜱᴇᴅ ᴍᴇꜱꜱᴀɢᴇꜱ 🔓`
                     conn.groupSettingUpdate(from, 'not_announcement')
                     reply(open)
                 }, timer)
@@ -70,7 +70,7 @@ if (!isAdmins) return reply(ADMIN)
                 reply(`Close time ${q} starting from now`)
                 setTimeout(() => {
                     var nomor = m.participant
-                    const close = `*ᏟᏞϴՏᎬ ͲᏆᎷᎬ* 𝙶𝚁𝙾𝚄𝙿 𝙲𝙻𝙾𝚂𝙴𝙳 𝙱𝚈 𝙼𝙰𝙻𝚅𝙸𝙽 𝚇𝙼𝙳..𝙰𝚃 𝙰𝙿𝙿𝚁𝙾𝚅𝙴𝙳 𝙰𝙳𝙼𝙸𝙽\n𝙽𝙾𝚆 𝙾𝙽𝙻𝚈 𝙰𝙳𝙼𝙸𝙽𝚂 𝙲𝙰𝙽 𝚂𝙴𝙽𝙳 𝙼𝙴𝚂𝚂𝙰𝙶𝙴𝚂 🔐`
+                    const close = `𝗖𝗟𝗢𝗦𝗘 𝗧𝗜𝗠𝗘\n\nɢʀᴏᴜᴘ ᴄʟᴏꜱᴇᴅ ʙʏ ꜱɪʟᴠᴀ ᴍᴅ...ᴀᴛ ᴀᴘᴘʀᴏᴠᴇᴅ ᴀᴅᴍɪɴ\ɴ ɴᴏᴡ ᴏɴʟʏ ᴀᴅᴍɪɴꜱ ᴄᴀɴ ᴍᴇꜱꜱᴀɢᴇꜱ. 🔐`
                     conn.groupSettingUpdate(from, 'announcement')
                     reply(close)
                 }, timer)
