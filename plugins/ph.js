@@ -7,7 +7,7 @@ const domain = `https://www.dark-yasiya-api.site`;
 cmd({
     pattern: "ph",
     alias: ["phubsearch"],
-    react: '🔍',
+    react: '🟨',
     category: "search",
     desc: "Search video titles on PHub",
     filename: __filename
@@ -30,10 +30,14 @@ cmd({
 
         // Format results for message
         let message = `🔍 *Search Results for:* "${q}"\n\n`;
-        limitedResults.forEach((result, index) => {
+        for (let i = 0; i < limitedResults.length; i++) {
+            const result = limitedResults[i];
             const title = result.title || "No title available";
-            message += `*${index + 1}.* ${title}\n`;
-        });
+            const url = result.url || "No URL available";
+
+            message += `*${i + 1}.* ${title}\n`;
+            message += `🔗 *URL:* ${url}\n\n`;
+        }
 
         // Reply message with search results
         await reply(message);
