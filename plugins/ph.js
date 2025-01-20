@@ -13,64 +13,67 @@ cmd({
     filename: __filename
 }, async (conn, m, mek, { from, q, reply }) => {
     try {
-        // Search query validation
-        if (!q || q.trim() === '') return await reply('*Please provide a search query! (e.g., candylove)*');
+        // සොයන query එක සත්‍ය වන්නේදැයි පරීක්ෂා කරන්න
+        if (!q || q.trim() === '') return await reply('*කරුණාකර සොයන වචනයක් ලබා දෙන්න! (උදාහරණය: candylove)*');
 
-        // API එකෙන් සර්ච් රිසල්ට් ලබාගන්න
+        // API එක භාවිතා කරමින් සොයන්න
         const searchResults = await fetchJson(`${domain}/search/phub?q=${encodeURIComponent(q)}`);
         const results = searchResults.result;
 
-        // Validate results
+        // ප්‍රතිඵල පරීක්ෂා කිරීම
         if (!Array.isArray(results) || results.length === 0) {
-            return await reply(`*No results found for:* ${q}`);
+            return await reply(`*ප්‍රතිඵලයක් හමු නොවීය:* ${q}`);
         }
 
-        // Limit results to first 10
+        // ප්‍රථම 10 ප්‍රතිඵල සීමා කරන්න
         const limitedResults = results.slice(0, 10);
 
-        // Format results for message
-        let message = `🔍 *Search Results for:* "${q}"\n\n`;
+        // ප්‍රතිඵල msg එක සකස් කරන්න
+        let message = `🔍 *"${q}" සඳහා සොයාගත් ප්‍රතිඵල*\n\n`;
         limitedResults.forEach((result, index) => {
-            const title = result.title || "No title available";
+            const title = result.title || "ශීර්ෂයක් ලබාගත නොහැක";
             message += `*${index + 1}.* ${title}\n`;
         });
 
-        // Reply message with search results
+        // ප්‍රතිඵලය මෙනුව විදියට පෙන්වන්න
         await reply(message);
 
-        // Ask the user for the index of the video they want
-        await reply('Please select the video number (1-10):');
+        // පරිශීලකයාට video එකක් තෝරන්න කියන්න
+        await reply('*Video එක තෝරන්න (1-10):*');
 
-        // Wait for the user's response
-        const videoIndex = await conn.waitForMessage(from); // Assuming `conn.waitForMessage` gets the user's response
+        // පරිශීලක පිළිතුර ගැනීමට බලා සිටින්න
+        const videoIndex = await conn.waitForMessage(from);
         const videoNumber = parseInt(videoIndex.text);
 
-        // Validate the number
+        // අංකය වලංගුදැයි පරීක්ෂා කරන්න
         if (isNaN(videoNumber) || videoNumber < 1 || videoNumber > 10) {
-            return await reply('*Invalid number! Please select a number between 1 and 10.*');
+            return await reply('*අවලංගු අංකය! කරුණාකර 1-10 අතර අංකයක් තෝරන්න.*');
         }
 
-        // Get the URL for the selected video
+        // තෝරාගත් video එකේ විස්තර ලබාගන්න
         const selectedVideo = limitedResults[videoNumber - 1];
         const videoUrl = selectedVideo.url;
 
-        // Fetch video details using the second API
         const videoDetails = await fetchJson(`${domain}/download/phub?url=${encodeURIComponent(videoUrl)}`);
 
-        // Get the video details
-        const videoTitle = videoDetails.video_title || "No title available";
-        const videoCover = videoDetails.video_cover || "No cover image available";
-        const resolution = videoDetails.resolution || "No resolution available";
+        // විස්තර JSON එකෙන් තොරතුරු ලබාගන්න
+        const videoTitle = videoDetails.video_title || "ශීර්ෂයක් ලබාගත නොහැක";
+        const videoCover = videoDetails.video_cover || "ඡායාරූපයක් ලබාගත නොහැක";
+        const formats = videoDetails.format || [];
 
-        // Format and reply with video details (video_cover as caption)
-        let videoMessage = `🎬 *Video Cover:* ${videoCover}\n`;
-        videoMessage += `📷 *Title:* ${videoTitle}\n`;
-        videoMessage += `💡 *Resolution:* ${resolution}`;
+        // Download links සහ thumbnail එකක් සමඟ Message එක සකස් කරන්න
+        let downloadMessage = `🎥 *${videoTitle}*\n\n*Available Download Links:*\n`;
+        formats.forEach((format, index) => {
+            downloadMessage += `*${index + 1}.* ${format.resolution}p (${format.file_type})\n🔗 Link: ${format.download_url}\n\n`;
+        });
 
-        await reply(videoMessage);
+        await conn.sendMessage(m.chat, {
+            image: { url: videoCover }, // Thumbnail එක ප්‍රදර්ශනය කිරීම
+            caption: downloadMessage
+        }, { quoted: mek });
 
     } catch (error) {
         console.error('Error in ph command:', error);
-        await reply('Sorry, something went wrong. Please try again later.');
+        await reply('කණගාටුයි, එහිදී දෝෂයක් සිදු විය. නැවත උත්සාහ කරන්න.');
     }
 });
