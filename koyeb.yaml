@@ -1,9 +1,10 @@
-name: Shaban-sobx-md
+name: lordxmd
+
 services:
-  - name: malvin-xmd-service
+  - name: lordxmd-md-service
     type: web
     ports:
-      - 5000
+      - 3000
     routes:
       - path: "/"
     build:
@@ -12,4 +13,3 @@ services:
     regions:
       - fra
       - sin
-      
