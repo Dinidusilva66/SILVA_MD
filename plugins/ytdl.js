@@ -131,7 +131,7 @@ cmd({
     }, {
       'quoted': _0x1439a7
     });
-
+      
 
     const _0x164ac6 = _0x166c67.key.id;
     _0x5351f6.ev.on("messages.upsert", async _0x11c496 => {
@@ -502,5 +502,47 @@ cmd({
   } catch (_0x2c8571) {
     console.log(_0x2c8571);
     _0x419796('' + _0x2c8571);
+  }
+});
+cmd({
+  'pattern': "yta",
+  'alias': "ytmp3",
+  'react': '⬇️',
+  'dontAddCommandList': true,
+  'filename': __filename
+}, async (_0x47e326, _0x16846a, _0x46f567, {
+  from: _0x31abbc,
+  q: _0x507947,
+  reply: _0x17432c
+}) => {
+  try {
+    if (!_0x507947) {
+      return await _0x17432c("*Need a YouTube URL!*");
+    }
+    const _0x5df9ac = await dlyta(_0x507947);
+    await _0x47e326.sendMessage(_0x31abbc, {
+      'audio': {
+        'url': _0x5df9ac.dl_link
+      },
+      'mimetype': "audio/mpeg"
+    }, {
+      'quoted': _0x16846a
+    });
+  } catch (_0x42217d) {
+    console.log("First attempt failed:", _0x42217d);
+    try {
+      const _0x9c7197 = await dlyta(_0x507947);
+      await _0x47e326.sendMessage(_0x31abbc, {
+        'audio': {
+          'url': _0x9c7197.dl_link
+        },
+        'mimetype': "audio/mpeg"
+      }, {
+        'quoted': _0x16846a
+      });
+    } catch (_0x43638b) {
+      console.log("Second attempt failed:", _0x43638b);
+      await _0x17432c("*Failed to process the request. Please try again later!*");
+    }
   }
 });
