@@ -25,12 +25,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         let desc = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
       
-*\`◻️ Title\`* ➜* *${data.title}*
+*🔊\` Title\`* ➜ *${data.title}*
 
-*\`◽ Views\`* ➜ *${data.views}*
-*\`◽ DESCRIPTION\`* ➜ *${data.description}*
-*\`◽ TIME\`* ➜ *${data.timestamp}*
-*\`◽ AGO\`* ➜ *${data.ago}*
+*👁\` Views\`* ➜ *${data.views}*
+*⏳\`◽ TIME\`* ➜ *${data.timestamp}*
+*📆\`◽ AGO\`* ➜ *${data.ago}*
+*📃\`◽ DESCRIPTION\`* ➜ *${data.description}*
 
 *ʀᴇᴘʟʏ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏꜰ ᴛʜᴇ ꜰᴏʀᴍᴀᴛ ʏᴏᴜ ʟɪᴋᴇ*
 
