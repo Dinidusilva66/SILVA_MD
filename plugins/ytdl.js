@@ -86,9 +86,9 @@ function convertYouTubeLink(_0x584404) {
 }
 cmd({
   'pattern': "song",
-  'alias': "play",
+  'alias': "music",
   'desc': "To download songs.",
-  'react': '🔎',
+  'react': '🔊',
   'category': "download",
   'filename': __filename
 }, async (_0x5351f6, _0x1439a7, _0x278458, {
@@ -193,7 +193,7 @@ cmd({
             },
             'mimetype': "audio/mp3",
             'fileName': _0x20e1e8.title + ".mp3",
-            'caption': "\n> *© Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ ʟᴏʀᴅ xᴍᴅ*\n "
+            'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n "
           }, {
             'quoted': _0x25ddf5
           });
@@ -289,7 +289,7 @@ cmd({
             'video': {
               'url': _0x404514
             },
-            'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+            'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
           }, {
             'quoted': _0x3dce21
           });
@@ -315,7 +315,7 @@ cmd({
               'video': {
                 'url': _0x13f213
               },
-              'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+              'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
             }, {
               'quoted': _0x3dce21
             });
@@ -341,7 +341,7 @@ cmd({
                 'video': {
                   'url': _0x3e40d4
                 },
-                'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+                'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
               }, {
                 'quoted': _0x3dce21
               });
@@ -367,7 +367,7 @@ cmd({
                   'video': {
                     'url': _0x14529b
                   },
-                  'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+                  'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
                 }, {
                   'quoted': _0x3dce21
                 });
@@ -395,7 +395,7 @@ cmd({
                     },
                     'mimetype': "video/mp4",
                     'fileName': _0x546126.title + ".mp4",
-                    'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+                    'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
                   }, {
                     'quoted': _0x3dce21
                   });
@@ -423,7 +423,7 @@ cmd({
                       },
                       'mimetype': "video/mp4",
                       'fileName': _0x546126.title + ".mp4",
-                      'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+                      'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
                     }, {
                       'quoted': _0x3dce21
                     });
@@ -451,7 +451,7 @@ cmd({
                         },
                         'mimetype': "video/mp4",
                         'fileName': _0x546126.title + ".mp4",
-                        'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅ xᴍᴅ🌟*\n"
+                        'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
                       }, {
                         'quoted': _0x3dce21
                       });
@@ -479,7 +479,7 @@ cmd({
                           },
                           'mimetype': "video/mp4",
                           'fileName': _0x546126.title + ".mp4",
-                          'caption': "\n*🌟Gᴇɴᴇʀᴀᴛᴇᴅ 4 Yᴏᴜ Bʏ ʟᴏʀᴅx🌟*\n"
+                          'caption': "\n> *ꜱɪʟᴠᴀ ᴍᴅ*\n"
                         }, {
                           'quoted': _0x3dce21
                         });
@@ -502,47 +502,5 @@ cmd({
   } catch (_0x2c8571) {
     console.log(_0x2c8571);
     _0x419796('' + _0x2c8571);
-  }
-});
-cmd({
-  'pattern': "yta",
-  'alias': "ytmp3",
-  'react': '⬇️',
-  'dontAddCommandList': true,
-  'filename': __filename
-}, async (_0x47e326, _0x16846a, _0x46f567, {
-  from: _0x31abbc,
-  q: _0x507947,
-  reply: _0x17432c
-}) => {
-  try {
-    if (!_0x507947) {
-      return await _0x17432c("*Need a YouTube URL!*");
-    }
-    const _0x5df9ac = await dlyta(_0x507947);
-    await _0x47e326.sendMessage(_0x31abbc, {
-      'audio': {
-        'url': _0x5df9ac.dl_link
-      },
-      'mimetype': "audio/mpeg"
-    }, {
-      'quoted': _0x16846a
-    });
-  } catch (_0x42217d) {
-    console.log("First attempt failed:", _0x42217d);
-    try {
-      const _0x9c7197 = await dlyta(_0x507947);
-      await _0x47e326.sendMessage(_0x31abbc, {
-        'audio': {
-          'url': _0x9c7197.dl_link
-        },
-        'mimetype': "audio/mpeg"
-      }, {
-        'quoted': _0x16846a
-      });
-    } catch (_0x43638b) {
-      console.log("Second attempt failed:", _0x43638b);
-      await _0x17432c("*Failed to process the request. Please try again later!*");
-    }
   }
 });
