@@ -4,7 +4,7 @@ cmd({
     pattern: "fw",
     alias: ["forward"],
     react: "📤",
-    desc: "Forward MP4 or any file to a group with status updates",
+    desc: "Forward media or any file to a group with status updates",
     category: "main",
     filename: __filename
 },
@@ -23,8 +23,14 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
         // Notify user that forwarding has started
         const forwardingMsg = await reply("⏳ *Forwarding...*");
 
-        // Check if the quoted message contains media
-        if (quoted.message.videoMessage || quoted.message.documentMessage) {
+        // Check if the quoted message contains media or document
+        const mediaMessage = quoted.message.videoMessage || 
+                             quoted.message.imageMessage || 
+                             quoted.message.documentMessage || 
+                             quoted.message.audioMessage || 
+                             quoted.message.stickerMessage;
+
+        if (mediaMessage) {
             // Download the media file
             const media = await conn.downloadMediaMessage(quoted);
 
@@ -34,22 +40,25 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
                 return;
             }
 
-            // Send the video or document
-            const mediaType = quoted.message.videoMessage ? "video" : "document";
-            const mimeType = quoted.message[mediaType + "Message"].mimetype || "video/mp4";
-            const fileName = quoted.message[mediaType + "Message"].fileName || "file.mp4";
+            // Determine the media type
+            let mediaType = "document"; // Default type
+            if (quoted.message.videoMessage) mediaType = "video";
+            if (quoted.message.imageMessage) mediaType = "image";
+            if (quoted.message.audioMessage) mediaType = "audio";
+            if (quoted.message.stickerMessage) mediaType = "sticker";
 
+            // Send the media
             await conn.sendMessage(groupJID, {
                 [mediaType]: media,
-                mimetype: mimeType,
-                fileName: fileName,
+                mimetype: quoted.message[mediaType + "Message"].mimetype || "",
+                fileName: quoted.message[mediaType + "Message"].fileName || "",
                 caption: quoted.message[mediaType + "Message"].caption || ""
             }, { quoted: mek });
 
             // Notify success
             await conn.sendMessage(from, { text: "✅ *Forwarding successful!*" }, { quoted: mek });
         } else {
-            await conn.sendMessage(from, { text: "❌ *Please reply to a valid MP4 file or document.*" }, { quoted: mek });
+            await conn.sendMessage(from, { text: "❌ *Please reply to a valid media or document message.*" }, { quoted: mek });
         }
     } catch (error) {
         console.error(error);
