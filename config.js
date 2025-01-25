@@ -98,6 +98,9 @@ AUTO_TYPING: process.env.AUTO_TYPING || "false",
 READ_CMD: process.env.READ_CMD || "false",
 //  📌 𝘁𝗿𝘂𝗲 𝗼𝗿 𝗳𝗮𝗹𝘀𝗲 𝗮𝘀 𝗬𝗼𝘂 𝗟𝗶𝗸𝗲 📌
 
-AUTO_RECORDING: process.env.AUTO_RECORDING || "false"
+AUTO_RECORDING: process.env.AUTO_RECORDING || "false",
 //  📌 𝘁𝗿𝘂𝗲 𝗼𝗿 𝗳𝗮𝗹𝘀𝗲 𝗮𝘀 𝗬𝗼𝘂 𝗟𝗶𝗸𝗲 📌
+
+OMDB_API_KEY: process.env.OMDB_API_KEY || "a42f2b5"
+//📌 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗴𝗲𝘁 𝘆𝗼𝘂𝗿 𝗸𝗲𝘆 𝗳𝗿𝗼𝗺 𝗼𝗺𝗱𝗯.𝗰𝗼𝗺 📌
 };
