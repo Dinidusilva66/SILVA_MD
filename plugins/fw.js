@@ -1,5 +1,3 @@
-const { cmd } = require('../command');
-
 cmd({
     pattern: "fw",
     alias: ["forward"],
@@ -23,7 +21,7 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
         // Notify user that forwarding has started
         const forwardingMsg = await reply("⏳ *Forwarding...*");
 
-        // Check if the quoted message contains media or document
+        // Check if quoted message has media
         const mediaMessage = quoted.message.videoMessage || 
                              quoted.message.imageMessage || 
                              quoted.message.documentMessage || 
@@ -50,9 +48,9 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
             // Send the media
             await conn.sendMessage(groupJID, {
                 [mediaType]: media,
-                mimetype: quoted.message[mediaType + "Message"].mimetype || "",
-                fileName: quoted.message[mediaType + "Message"].fileName || "",
-                caption: quoted.message[mediaType + "Message"].caption || ""
+                mimetype: quoted.message[mediaType + "Message"]?.mimetype || "",
+                fileName: quoted.message[mediaType + "Message"]?.fileName || "",
+                caption: quoted.message[mediaType + "Message"]?.caption || ""
             }, { quoted: mek });
 
             // Notify success
