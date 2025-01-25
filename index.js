@@ -132,7 +132,7 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)// https://mega.nz
 filer.download((err, data) => {//https://xstrosession.koyeb.app/session?session=
 if(err) throw err
 fs.writeFile(__dirname + '/sessions/creds.json', data, () => {
-console.log("Nexus Session downloaded ✅")
+console.log("◻️ SILVA MD Nexus Session downloaded")
 })})}
   
   const express = require("express");
@@ -142,7 +142,7 @@ console.log("Nexus Session downloaded ✅")
   //=============================================
   
   async function connectToWA() {
-  console.log("[❄️] MALVIN Connecting to WhatsApp ⏳️...");
+  console.log("◻️ SILVA MD Connecting to WhatsApp...");
   const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/sessions/')
   var { version } = await fetchLatestBaileysVersion()
   
@@ -162,18 +162,18 @@ console.log("Nexus Session downloaded ✅")
   connectToWA()
   }
   } else if (connection === 'open') {
-  console.log('[❄️] 🛠️ Installing Plugins.')
+  console.log('◻️ Installing Plugins...')
   const path = require('path');
   fs.readdirSync("./plugins/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
   require("./plugins/" + plugin);
   }
   });
-  console.log('[❄️] Plugins installed successful ✅')
-  console.log('[❄️] Malin Xmd connected to whatsapp ✅')
+  console.log('◻️ Plugins installed successful')
+  console.log('◻️ SILVA MD connected to whatsapp')
   
-  let up = `*Hi Owner😇, Congrats Malvin xmd Connected Successfully! 🚀* \n\n> Light, Cold, Icy, Fast & Rich Loaded With Features, MALVIN-XMD W.A Bot.\n\n *Thanks for using MALVIN-MD ❄️* \n\n> Join WhatsApp Channel :- 🛠️\n \nhttps://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z\n\n- *ყσµɾ ɓσƭ ρɾεƒเא ➜*  ${prefix}\n\nDont forget to  star our repo☺ \n\nhttps://github.com/kingmalvn/MALVIN-XMD\n\n> ©🚀ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀`;
-  conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/7pg2gp.jpg` }, caption: up })
+  let up = `*ꜱɪʟᴠᴀ ᴍᴅ ᴄᴏɴɴᴇᴄᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟ.*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`;
+  conn.sendMessage(conn.user.id, { image: { url: `https://envs.sh/HLh.jpg` }, caption: up })
   }
   })
  conn.ev.on('creds.update', saveCreds)  
