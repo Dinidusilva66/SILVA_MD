@@ -4,7 +4,7 @@ cmd({
     pattern: "fw",
     alias: ["forward"],
     react: "📤",
-    desc: "Forward a quoted message to a group",
+    desc: "Forward a quoted message to a group without a caption",
     category: "main",
     filename: __filename
 },
@@ -21,8 +21,8 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
         const groupJID = args[0]; // Group JID to forward the message to
 
         // Forward the quoted message
-        await conn.forwardMessage(groupJID, quoted, true); // `true` ensures the message is forwarded as it is
-        reply(`✅ Message successfully forwarded to *${groupJID}*.`);
+        await conn.sendMessage(groupJID, quoted.message, { quoted: mek });
+        reply(`✅ Message forwarded to *${groupJID}* successfully.`);
     } catch (error) {
         console.error(error);
         reply(`❌ Error: ${error.message}`);
