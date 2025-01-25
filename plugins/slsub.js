@@ -100,8 +100,8 @@ cmd({
                                     url: directDownloadUrl
                                 },
                                 mimetype: 'video/mp4',
-                                fileName: `${movieDetails.title} - ${selectedLink.quality}.mp4`,
-                                caption: `${movieDetails.title}\nQuality: ${selectedLink.quality}\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`
+                                fileName: `ꜱɪʟᴠᴀ ᴍᴅ | ${movieDetails.title} - ${selectedLink.quality}.mp4`,
+                                caption: `*${movieDetails.title}* | *_${selectedLink.quality}_*\n\n> *ꜱɪʟᴠᴀ ᴍᴅ*`
                             }, { quoted: pdReply });
 
                     await conn.sendMessage(from, { react: { text: '✅', key: mek.key } });
