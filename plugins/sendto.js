@@ -1,41 +1,60 @@
 const Asena = require("../Utilis/events");
-const { sendMessage } = require("../Utilis/groupmute"); // Function to send a message
-const { downloadContentFromMessage } = require("@adiwajshing/baileys"); // To download media
+const { forwardOrBroadCast } = require("../Utilis/groupmute");
+const { getBuffer } = require('../Utilis/download');
+const { parsedJid } = require("../Utilis/Misc");
 
+// chnage url for custom photo and change caption if
+const url1 = 'https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg'
+const url2 = 'https://previews.123rf.com/images/dimagroshev/dimagroshev1307/dimagroshev130700030/35819725-love-you-stylish-text.jpg'
 Asena.addCommand(
-    { pattern: 'sendto ?(.*)', fromMe: true, desc: "Send replied message to inbox or group" },
+    { pattern: 'mforward ?(.*)', fromMe: true, desc: "Forward replied msg." },
     async (message, match) => {
-        if (!match) return await message.sendMessage("*Provide a valid JID (user or group)*\nExample: .sendto 94770123456@s.whatsapp.net or 12345-67890@g.us");
-        if (!message.reply_message) return await message.sendMessage("*Reply to a message to send it!*");
+        if (!match) return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+        if (!message.reply_message)
+            return await message.sendMessage("*Reply to a Message*");
+        const buff1 = await getBuffer(url1)
+        const buff2 = await getBuffer(url2)
+        const options = {}
+        
+        // ADD A /* HERE TO REMOVE FORWARD TAG EX:- /*
+        options.contextInfo = {
+                 forwardingScore: 5, // change it to 999 for many times forwarded
+                 isForwarded: true 
+              } 
+         // ADD A */ HERE TO REMOVE FORWARD TAG EX:- */
 
-        const targetJID = match.trim(); // Extract the target JID (inbox or group)
-        const { messageType, mimeType, body } = message.reply_message;
+        
+        if(message.reply_message.audio){ 
+         //ADD /* HERE NOT TO MODIFY AUDIO DURATION
+            options.duration = 999999 
+        //ADD */ HERE NOT TO MODIFY AUDIO DURATION
 
-        let mediaBuffer = null;
-
-        // Download media if the message has media content
-        if (["image", "video", "audio", "document"].includes(messageType)) {
-            const stream = await downloadContentFromMessage(message.reply_message.message, messageType);
-            let bufferArray = [];
-            for await (const chunk of stream) {
-                bufferArray.push(chunk);
+        options.ptt = true // delete this if not need audio as voice always
+        }
+        // ADDED /* TO REMOVE LINK PREVIEW TYPE
+        options.linkPreview = {
+               head: "LyFE",
+               body: "❣",
+               mediaType: 2, //3 for video
+               thumbnail: buff2.buffer,
+               sourceUrl: "https://www.github.com/lyfe00011/whatsapp-bot",
+                }
+         // ADDED */ TO REMOVE LINK PREVIEW TYPE
+        options.quoted = {
+            key: {
+                fromMe: false,
+                participant: "0@s.whatsapp.net",
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                "imageMessage": {
+                    "jpegThumbnail": buff1.buffer,
+                    "caption": "(っ◔◡◔)っ ♥ LOVE YOU ♥"
+                }
             }
-            mediaBuffer = Buffer.concat(bufferArray); // Combine chunks into a buffer
         }
-
-        // Send the message to the target JID
-        if (mediaBuffer) {
-            // For media messages
-            const options = {
-                mimetype: mimeType,
-                caption: message.reply_message.caption || "Here's your file!", // Add a caption if needed
-            };
-            await sendMessage(targetJID, mediaBuffer, messageType, options);
-        } else {
-            // For text messages
-            await sendMessage(targetJID, body, "conversation");
-        }
-
-        return await message.sendMessage(`Message sent to: ${targetJID}`);
+        for (let jid of parsedJid(match)) {
+      await forwardOrBroadCast(jid, message, options);
+    }
     }
 );
