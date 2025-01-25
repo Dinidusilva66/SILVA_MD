@@ -15,6 +15,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             return reply("❌ Please reply to a document, image, or video message.");
         }
 
+        // Debugging the quoted message structure
+        console.log("Quoted Message:", quoted.message);
+
         // Safeguard: Check if quoted.message exists
         const quotedMessage = quoted.message || {};
         const isDocument = quotedMessage.documentMessage;
@@ -66,7 +69,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         reply("✅ File successfully sent to the target group with its original caption!");
 
     } catch (error) {
-        console.error(error);
+        console.error("Error:", error);
         reply(`⚠️ An error occurred: ${error.message}`);
     }
 });
