@@ -1,21 +1,23 @@
 const { cmd } = require('../command');
-const fs = require('fs');
 
 cmd({
     pattern: "fw",
     alias: ["forward"],
     react: "📤",
-    desc: "Forward messages and media to a specified JID.",
+    desc: "Send messages/media to a specified JID without forward tag.",
     category: "utility",
     filename: __filename
 },
 async (conn, mek, m, { from, quoted, args, reply }) => {
     try {
-        if (!quoted) return reply("Reply to a message with `.fw <jid>` to forward.");
-        if (!args[0]) return reply("Please provide a valid JID. Example: `.fw 1234567890@s.whatsapp.net`");
+        if (!quoted) return reply("Reply to a message or media with `.fw <jid>`");
+        if (!args[0]) return reply("Provide a valid JID. Example: `.fw 1234567890@s.whatsapp.net`");
 
         const targetJID = args[0];
         const quotedMsg = quoted.message;
+
+        // Check if quoted message is defined
+        if (!quotedMsg) return reply("The quoted message is invalid or not supported.");
 
         // Forward a document
         if (quotedMsg.documentMessage) {
@@ -27,7 +29,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
                 fileName: quotedMsg.documentMessage.fileName,
                 caption: caption
             });
-            return reply(`Document forwarded to ${targetJID}`);
+            return reply(`Document sent to ${targetJID}`);
         }
 
         // Forward an image
@@ -38,7 +40,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
                 image: imageBuffer,
                 caption: caption
             });
-            return reply(`Image forwarded to ${targetJID}`);
+            return reply(`Image sent to ${targetJID}`);
         }
 
         // Forward a video
@@ -49,17 +51,18 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
                 video: videoBuffer,
                 caption: caption
             });
-            return reply(`Video forwarded to ${targetJID}`);
+            return reply(`Video sent to ${targetJID}`);
         }
 
         // Forward text message
         if (quotedMsg.conversation || quotedMsg.extendedTextMessage) {
             const text = quotedMsg.conversation || quotedMsg.extendedTextMessage.text;
             await conn.sendMessage(targetJID, { text });
-            return reply(`Text message forwarded to ${targetJID}`);
+            return reply(`Text message sent to ${targetJID}`);
         }
 
-        reply("Unsupported message type.");
+        // If no supported message type is found
+        reply("The quoted message type is not supported for forwarding.");
 
     } catch (error) {
         console.error(error);
