@@ -16,7 +16,7 @@ const axios = require('axios')
 
 cmd({
 
-    pattern: "menu",
+    pattern: "allmenu",
 
     react: "📄",
 
