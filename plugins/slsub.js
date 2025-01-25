@@ -14,7 +14,7 @@ const api_key = `Manul-Ofc-Sl-Sub-Key-9`;
 
 cmd({
     pattern: "sinhala",
-    alias: ["slsub", "sinhalasub"],
+    alias: ["slsub", "ssb"],
     react: '📑',
     category: "download",
     desc: "Search movies on sinhalasub and get download links",
