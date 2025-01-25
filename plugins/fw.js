@@ -38,12 +38,21 @@ async (conn, mek, m, { from, args, quoted, reply }) => {
                 return;
             }
 
-            // Determine the media type
-            let mediaType = "document"; // Default type
-            if (quoted.message.videoMessage) mediaType = "video";
-            if (quoted.message.imageMessage) mediaType = "image";
-            if (quoted.message.audioMessage) mediaType = "audio";
-            if (quoted.message.stickerMessage) mediaType = "sticker";
+            // Determine the media type by checking the available message properties
+            let mediaType;
+            if (quoted.message.videoMessage) {
+                mediaType = "video";
+            } else if (quoted.message.imageMessage) {
+                mediaType = "image";
+            } else if (quoted.message.audioMessage) {
+                mediaType = "audio";
+            } else if (quoted.message.stickerMessage) {
+                mediaType = "sticker";
+            } else if (quoted.message.documentMessage) {
+                mediaType = "document";
+            } else {
+                return reply("❌ *No media found in the quoted message.*");
+            }
 
             // Send the media
             await conn.sendMessage(groupJID, {
