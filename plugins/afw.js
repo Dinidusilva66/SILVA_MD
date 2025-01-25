@@ -12,19 +12,20 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, groupMetadata, reply }) => {
     try {
         if (!quoted) {
-            return reply("❌ Please reply to a document or media file to forward.");
+            return reply("❌ Please reply to a document, image, or video message.");
         }
 
-        // Check if the quoted message contains a document or media
-        const quotedMessage = quoted.message;
+        // Safeguard: Check if quoted.message exists
+        const quotedMessage = quoted.message || {};
         const isDocument = quotedMessage.documentMessage;
-        const isMedia = quotedMessage.imageMessage || quotedMessage.videoMessage;
+        const isImage = quotedMessage.imageMessage;
+        const isVideo = quotedMessage.videoMessage;
 
-        if (!isDocument && !isMedia) {
-            return reply("❌ Only document, image, or video messages can be forwarded.");
+        if (!isDocument && !isImage && !isVideo) {
+            return reply("❌ Unsupported message type. Please reply to a document, image, or video.");
         }
 
-        // Check file size for documents (if applicable)
+        // Check file size for documents
         if (isDocument && quotedMessage.documentMessage.fileLength > 2 * 1024 * 1024 * 1024) {
             return reply("❌ File size exceeds 2GB. Cannot forward.");
         }
@@ -32,8 +33,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         // Define target group JID (replace this with your group JID)
         const targetGroupJID = "120363376684737580@g.us";
 
-        // Get the caption from the quoted message
-        const caption = quotedMessage.caption || quotedMessage.documentMessage?.caption || quotedMessage.imageMessage?.caption || quotedMessage.videoMessage?.caption || "";
+        // Extract caption
+        const caption =
+            quotedMessage.documentMessage?.caption ||
+            quotedMessage.imageMessage?.caption ||
+            quotedMessage.videoMessage?.caption ||
+            "";
 
         // Prepare message content
         let messageContent;
@@ -44,12 +49,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                 fileName: quotedMessage.documentMessage.fileName,
                 caption: caption // Retain original caption
             };
-        } else if (quotedMessage.imageMessage) {
+        } else if (isImage) {
             messageContent = {
                 image: { url: await conn.downloadMediaMessage(quoted) },
                 caption: caption // Retain original caption
             };
-        } else if (quotedMessage.videoMessage) {
+        } else if (isVideo) {
             messageContent = {
                 video: { url: await conn.downloadMediaMessage(quoted) },
                 caption: caption // Retain original caption
@@ -62,6 +67,6 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
     } catch (error) {
         console.error(error);
-        reply(`⚠️ An error occurred: ${error}`);
+        reply(`⚠️ An error occurred: ${error.message}`);
     }
 });
