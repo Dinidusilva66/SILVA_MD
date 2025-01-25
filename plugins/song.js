@@ -3,7 +3,7 @@ const fetch = require('node-fetch')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 const axios = require('axios');
 const yts = require("yt-search")
-const API = `contact_me` // මට මැසේජ් එකක් දාල ඉල්ලගන්න...😎❤️ ( +94 74 227 4855 )
+const API = `https://manu-ofc-api-site-6bfcbe0e18f6.herokuapp.com/ytmp3-dl-fixed?url=`
 cmd({
     pattern: "song",
     alias: ["audio"],
