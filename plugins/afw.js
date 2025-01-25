@@ -30,7 +30,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         }
 
         // Define target group JID (replace this with your group JID)
-        const targetGroupJID = "1234567890-123456@g.us";
+        const targetGroupJID = "120363376684737580@g.us";
 
         // Get the caption from the quoted message
         const caption = quotedMessage.caption || quotedMessage.documentMessage?.caption || quotedMessage.imageMessage?.caption || quotedMessage.videoMessage?.caption || "";
