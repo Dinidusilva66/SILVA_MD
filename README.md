@@ -172,12 +172,15 @@ _ⁱ’ᵐ ⁿᵒᵗ ʳᵉˢᵖᵒⁿˢⁱᵇˡᵉ ᶠᵒʳ ʸᵒᵘ ᵐᵉˢˢ�
 
 </div>
 
-</p> <p align="center">
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Rubik+Dirt&size=65&pause=1000&color=F89C75F&background=FF20A500&center=true&vCenter=true&width=1000&height=150&lines=THANK+YOU;FOR+USIN+MALVIN+XMD" alt="Typing SVG" /></a>
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Rubik&weight=700&size=65&pause=1000&color=FFFFFF&background=FFFFFF00&center=true&vCenter=true&width=1000&height=150&lines=සිල්වා MD;තැන්කුයි" alt="Typing SVG" style="font-weight: bold; font-family: 'Rubik', sans-serif;"/>
+  </a>
+</p>
 
 
 ***`WARNING` : `𝘋𝘖𝘕'𝘛 𝘔𝘖𝘋𝘐𝘍𝘠 𝘛𝘏𝘐𝘚 𝘉𝘖𝘛 𝘍𝘐𝘙𝘚𝘛 𝘐𝘕𝘍𝘖𝘙𝘔 𝘛𝘏𝘌 𝘖𝘞𝘕𝘌𝘙`***
 
 <p align="center">
-  <a href="https://wa.me/+94710164941?text=*ʜɪɪ+ᴍᴀʟᴠɪɴ--+ɪ+ɴᴇᴇᴅ+ʜᴇʟᴘ!.+ɪ+ᴍᴇssᴀɢᴇᴅ+ʏᴏᴜ+ғʀᴏᴍ+ᴍᴀʟᴠɪɴ-xᴍᴅ+ʀᴇᴘᴏ!!.+ɪᴀᴍ+ᴀsᴋɪɴɢ+ғᴏʀ+ᴘᴇʀᴍɪssɪᴏɴ+ᴛᴏ+ᴄʟᴏɴᴇ+ʏᴏᴜʀ+ʙᴏᴛ!!*" target="_blank">
+  <a href="https://wa.me/+94710164941?text=*ʜɪɪ+ᴍᴀᴄʜᴀɴ+ᴅɪɴɪᴅᴜ--+ɪ+ɴᴇᴇᴅ+ʜᴇʟᴘ!.+ɪ+ᴀᴍ+ғʀᴏᴍ+ꜱɪʟᴠᴀ+ᴍᴅ+ʀᴇᴘᴏ!!.+ɪᴀᴍ+ᴀsᴋɪɴɢ+ғᴏʀ+ᴘᴇʀᴍɪssɪᴏɴ+ᴛᴏ+ᴄʟᴏɴᴇ+ʏᴏᴜʀ+ʙᴏᴛ!!*" target="_blank">
     <img alt="whatsapp" src="https://img.shields.io/badge/ Whatsapp -black?style=for-the-badge&logo=whatsapp&logoColor=white" />
