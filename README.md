@@ -15,7 +15,7 @@ src="https://envs.sh/fab.jpg?"/>
 
    </p>
 <p align="center">
-<a href="https://github.com/dinidusilva66"><img title="Author" src="https://img.shields.io/badge/kingmalvn-black?style=for-the-badge&logo=Github"></a> <a href=""><img title="Author" src="https://img.shields.io/badge/YOUTUBE SUBSCRIBE-red?style=for-the-badge&logo=youtube"></a> <a href="https://wa.me/94710164941"><img title="Author" src="https://img.shields.io/badge/Contact Me-black?style=for-the-badge&logo=whatsapp"></a>
+<a href="https://github.com/dinidusilva66"><img title="Author" src="https://img.shields.io/badge/Dinidusilva66-black?style=for-the-badge&logo=Github"></a> <a href=""><img title="Author" src="https://img.shields.io/badge/Dinidu Silva-black?style=for-the-badge&logo=whatsapp"></a>
 <p/> 
 
  <p align="center">
