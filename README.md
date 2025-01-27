@@ -174,7 +174,7 @@ _ⁱ’ᵐ ⁿᵒᵗ ʳᵉˢᵖᵒⁿˢⁱᵇˡᵉ ᶠᵒʳ ʸᵒᵘ ᵐᵉˢˢ�
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Rubik&weight=700&size=65&pause=1000&color=FFFFFF&background=FFFFFF00&center=true&vCenter=true&width=1000&height=150&lines=THANK+YOU+FOR+CHOOSING;SULVA+MD" alt="Typing SVG" style="font-weight: bold; font-family: 'Rubik', sans-serif;"/>
+    <img src="https://readme-typing-svg.demolab.com?font=Rubik&weight=700&size=65&pause=1000&color=FFFFFF&background=FFFFFF00&center=true&vCenter=true&width=1000&height=150&lines=THANK+YOU+FOR+CHOOSING;SILVA+MD" alt="Typing SVG" style="font-weight: bold; font-family: 'Rubik', sans-serif;"/>
   </a>
 </p>
 
