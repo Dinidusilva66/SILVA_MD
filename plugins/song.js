@@ -7,7 +7,7 @@ const fg = require("api-dylux");
 cmd({
   'pattern': "song",
   'desc': "download songs",
-  'react': '🎶',
+  'react': '🔊',
   'category': "download",
   'filename': __filename
 }, async (_0x3fec02, _0x3a54d0, _0x85693, {
@@ -41,25 +41,22 @@ cmd({
     const _0x49d75d = await yts(_0x2525d9);
     const _0x3c4c34 = _0x49d75d.videos[0x0];
     const _0x4eec75 = _0x3c4c34.url;
-    let _0x2af018 = `*🎼 🄽🄰🄳🄴🄴🄽 🄼🄳 🅂🄾🄽🄶 🄳🄾🅆🄽🄻🄾🄰🄳🄴🅁 . .⚙*
+    let _0x2af018 = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
 
-🎼⚙ *TITLE:* *${_0x3c4c34.title}*
+🔊 *ᴛɪᴛʟᴇ* ➜ *${_0x3c4c34.title}*
 
-🎼⚙ *VIEWS:* *${_0x3c4c34.views}*
-
-🎼⚙ *DESCRIPTION:*  
+👁 *ᴠɪᴇᴡꜱ* *${_0x3c4c34.views}*
+⏳ *ᴛɪᴍᴇ* *${_0x3c4c34.timestamp}*
+📆 *ᴀɢᴏ* *${_0x3c4c34.ago}*
+🗒️ *ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ* ➜ 
 *${_0x3c4c34.description}*
 
-🎼⚙ *TIME:* *${_0x3c4c34.timestamp}*
+*_ʀᴇᴘʟʏ ᴡɪᴛʜ ᴀɴ ᴏᴘᴛɪᴏɴ ʏᴏᴜ ᴡᴀɴᴛ_*
 
-🎼⚙ *AGO:* *${_0x3c4c34.ago}*
+1️⃣ *Audio Format* 
+2️⃣ *Document Format*
 
-Reply This Message With Option:
-
-1. Audio With Normal Format  
-2. Audio With Document Format
-
-*©𝗡𝗔𝗗𝗘𝗘𝗡 𝗠𝗗*`;
+> *ꜱɪʟᴠᴀ ᴍᴅ*`;
     const _0x533f92 = await _0x3fec02.sendMessage(_0x425f3d, {
       'image': {
         'url': _0x3c4c34.thumbnail
