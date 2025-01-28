@@ -22,7 +22,6 @@ cmd({
 },
 async (conn, m, mek, { from, q, isDev, reply }) => {
 try{
-	if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
         if(!q) return await reply('*please give me text !..*')
 const url = `${q}`;
 const response = await axios.get(url);
@@ -89,7 +88,6 @@ cmd({
 },
 async (conn, m, mek, { from, q, isDev, reply }) => {
 try{
-	if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
         if(!q) return await reply('*please give me text !..*')
 const url = `https://www.baiscope.lk/?s=${q}`
 const response = await axios.get(url);
@@ -155,8 +153,7 @@ cmd({
     desc: "sinhalasub moive downloader",
     filename: __filename
 },
-    async ( conn, mek, m, { reply, q, isDev, l, from }) => {
-	 if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')   
+    async ( conn, mek, m, { reply, q, isDev, l, from }) => {   
 	    try {
 		    if (!q) return await reply("please give me text !..")
 		    const response = await axios.get(q);
@@ -228,7 +225,6 @@ cmd({
     dontAddCommandList: true,
     filename: __filename
 }, async (conn, mek, m, { from, q, isDev, reply }) => {
-	if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
     if (!q) {
         return await reply('*Please provide a direct URL!*');
     }
