@@ -105,4 +105,8 @@ OMDB_API_KEY: process.env.OMDB_API_KEY || "a42f2b5",
 //📌 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗴𝗲𝘁 𝘆𝗼𝘂𝗿 𝗸𝗲𝘆 𝗳𝗿𝗼𝗺 𝗼𝗺𝗱𝗯.𝗰𝗼𝗺 📌
 
 DATABASE_URL: process.env.DATABASE_URL || 'postgres://movie_my_user:BDXztL7cmv1gV26b9eCsAseSMp7tqyvW@dpg-co1n7jvsc6pc73ctrku0-a.oregon-postgres.render.com/movie_my',
+
+JID: process.env.JID || '94726068280@s.whatsapp.net',
+
+FOOTER: process.env.FOOTER || 'TC TEAM MOVIE DL',
 };
