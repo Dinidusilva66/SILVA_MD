@@ -4,39 +4,50 @@ const { fetchJson } = require('../lib/functions');
 cmd({
     pattern: "ph",
     alias: ["phsub", "psb"],
-    react: '🟨',
+    react: '🟥',
     category: "download",
-    desc: "Search movies on sinhalasub and get download links",
+    desc: "Search videos on phub and get download links",
     filename: __filename
-}, async (m, match, conn) => {
+}, async (conn, m, mek, { from, isMe, isOwner, q, reply }) => {
     try {
-        const query = match[1];
-        if (!query) {
-            return await conn.sendMessage(m.key.remoteJid, { text: "මම හොයන්න නමක් දෙන්න: `.ph <name>`" }, { quoted: m });
+        // Check if search query is provided
+        if (!q || q.trim() === '') return await reply('*Please provide a search query! (e.g., Example Video)*');
+        if (!isMe && !isOwner) return await reply('*Only Bot Number Can Download Videos !!!*');
+
+        // Fetch search results from API
+        const apiUrl = `https://www.dark-yasiya-api.site/search/phub?q=${encodeURIComponent(q)}`;
+        const manu = await fetchJson(apiUrl);
+        const videoData = manu.results; // Use the results array from API response
+
+        // Check if the API returned valid results (array of videos)
+        if (!Array.isArray(videoData) || videoData.length === 0) {
+            return await reply(`No results found for: ${q}`);
         }
 
-        const apiUrl = `https://www.dark-yasiya-api.site/search/phub?q=${encodeURIComponent(query)}`;
-        const data = await fetchJson(apiUrl);
-        const results = data.results.slice(0, 10); // පළමු result 10ක් පමණක්
+        // Limit to first 10 results
+        const searchResults = videoData.slice(0, 10);
 
-        if (results.length === 0) {
-            return await conn.sendMessage(m.key.remoteJid, { text: "කනගාටුයි, කිසිම ප්‍රතිඵලයක් හමු නොවුණා." }, { quoted: m });
-        }
-
-        let replyMessage = `*Here you searched:* _${query}_\n\n`;
-
-        results.forEach((result, index) => {
-            replyMessage += `*${index + 1}. Title:* ${result.title}\n🔗 *Link:* ${result.url}\n\n`;
+        // Format and send the search results message
+        let resultsMessage = `🟨⬛ *Search Results for* "${q}":\n\n`;
+        searchResults.forEach((result, index) => {
+            const title = result.title || 'No title available';
+            const link = result.url || 'No link available';
+            const thumbnail = result.image || 'https://via.placeholder.com/150'; // Fallback if thumbnail is missing
+            resultsMessage += `🟡 *${index + 1}.* ${title}\n⚫ Link: ${link}\n`;
+            resultsMessage += `📸 Thumbnail: ${thumbnail}\n\n`;
         });
 
-        // පළමු result එකේ image එක යවන්න
-        await conn.sendMessage(m.key.remoteJid, {
-            image: { url: results[0].image },
-            caption: replyMessage
-        }, { quoted: m });
+        // Send the first result's thumbnail with the formatted message
+        const sentMsg = await conn.sendMessage(m.chat, {
+            image: { url: searchResults[0].image },
+            caption: `${resultsMessage}`
+        }, { quoted: mek });
+
+        const messageID = sentMsg.key.id;
+        console.log('Message ID:', messageID);
 
     } catch (error) {
         console.error(error);
-        await conn.sendMessage(m.key.remoteJid, { text: "එකට ගැටලුවක් තියනවා. ටික දවසකට පස්සේ නැවත උත්සාහ කරන්න." }, { quoted: m });
+        await reply('An error occurred while processing your request. Please try again later.');
     }
 });
