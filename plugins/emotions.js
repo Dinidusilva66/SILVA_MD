@@ -79,6 +79,66 @@ cmd({
   }
 });
 cmd({
+  'pattern': "hack",
+  'desc': "Displays a dynamic loading bar for fun.",
+  'category': "tools",
+  'react': '👨‍💻',
+  'filename': __filename
+}, async (_0x353111, _0x52aa7e, _0x362309, {
+  from: _0x3d98dd,
+  reply: _0x46f413
+}) => {
+  try {
+    const _0xce6d4d = await _0x353111.sendMessage(_0x3d98dd, {
+      'text': '○○○○○○○○○○'
+    });
+
+    const progressStages = [
+      '●○○○○○○○○○',
+      '●●○○○○○○○○',
+      '●●●○○○○○○○',
+      '●●●●○○○○○○',
+      '●●●●●○○○○○',
+      '●●●●●●○○○○',
+      '●●●●●●●○○○',
+      '●●●●●●●●○○',
+      '●●●●●●●●●○',
+      '●●●●●●●●●●',
+      'Hack is Completed. user data is transferd. 👨‍💻'
+
+    ];
+
+    for (const stage of progressStages) {
+      await new Promise(resolve => setTimeout(resolve, 400)); // 400ms delay
+      await _0x353111.relayMessage(_0x3d98dd, {
+        'protocolMessage': {
+          'key': _0xce6d4d.key,
+          'type': 0xe,
+          'editedMessage': {
+            'conversation': stage
+          }
+        }
+      }, {});
+    }
+    
+    // Completion Message
+    await new Promise(resolve => setTimeout(resolve, 500));
+    await _0x353111.relayMessage(_0x3d98dd, {
+      'protocolMessage': {
+        'key': _0xce6d4d.key,
+        'type': 0xe,
+        'editedMessage': {
+          'conversation': '✅ Completed!'
+        }
+      }
+    }, {});
+
+  } catch (error) {
+    console.log(error);
+    _0x46f413("❌ *Error!* " + error.message);
+  }
+});
+cmd({
   'pattern': "heart",
   'desc': "Displays a dynamic edit msg for fun.",
   'category': "tools",
