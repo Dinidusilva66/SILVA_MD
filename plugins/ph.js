@@ -4,7 +4,7 @@ const { fetchJson } = require('../lib/functions');
 cmd({
     pattern: "ph",
     alias: ["phsub", "psb"],
-    react: '🟥',
+    react: '🟨',
     category: "download",
     desc: "Search videos on phub and get download links",
     filename: __filename
