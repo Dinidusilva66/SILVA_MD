@@ -1,47 +1,124 @@
-/*
-Project Name : MALVIN XMD
-Creator      : Malvin King ( Mr Lord Malvin )
-Repo         : https//github.com/kingmalvn/MALVIN-XMD
-Support      : wa.me/263714757857
-*/
+const {
+  bot,
+  yts,
+  song,
+  video,
+  addAudioMetaData,
+  // genListMessage,
+  generateList,
+} = require('../lib/')
+const ytIdRegex =
+  /(?:http(?:s|):\/\/|)(?:(?:www\.|)youtube(?:\-nocookie|)\.com\/(?:watch\?.*(?:|\&)v=|embed|shorts\/|v\/)|youtu\.be\/)([-_0-9A-Za-z]{11})/
 
+bot(
+  {
+    pattern: 'yts ?(.*)',
+    desc: 'YT search',
+    type: 'search',
+  },
+  async (message, match) => {
+    if (!match) return await message.send('*Example : yts baymax*')
+    const vid = ytIdRegex.exec(match)
+    if (vid) {
+      const result = await yts(vid[1], true)
+      const { title, description, duration, view, published } = result[0]
+      return await message.send(
+        `*Title :* ${title}\n*Time :* ${duration}\n*Views :* ${view}\n*Publish :* ${published}\n*Desc :* ${description}`
+      )
+    }
+    const result = await yts(match)
+    const msg = result
+      .map(
+        ({ title, id, view, duration, published, author }) =>
+          `• *${title.trim()}*\n*Views :* ${view}\n*Time :* ${duration}\n*Author :* ${author}\n*Published :* ${published}\n*Url :* https://www.youtube.com/watch?v=${id}\n\n`
+      )
+      .join('')
 
-const config = require('../config')
-const l = console.log
-const { cmd, commands } = require('../command')
-const dl = require('@bochilteam/scraper')  
-const ytdl = require('yt-search');
-const fs = require('fs-extra')
-var videotime = 60000 // 1000 min
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
-cmd({
-    pattern: "yt",
-    alias: ["ytsearch"],
-    use: '.yts sameer kutti',
-    react: "🔎",
-    desc: "Search and get details from youtube.",
-    category: "search",
-    filename: __filename
+    return await message.send(msg.trim())
+  }
+)
 
-},
+bot(
+  {
+    pattern: 'song ?(.*)',
+    desc: 'download yt song',
+    type: 'download',
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
+    if (!match) return await message.send('*Example : song indila love story/ yt link*')
+    const vid = ytIdRegex.exec(match)
+    if (vid) {
+      const _song = await song(vid[1])
+      if (!_song) return await message.send('*not found*')
+      const [result] = await yts(vid[1], true)
+      const { author, title, thumbnail } = result
+      const meta = title ? await addAudioMetaData(_song, title, author, '', thumbnail.url) : _song
+      return await message.send(
+        meta,
+        { quoted: message.data, mimetype: 'audio/mpeg', fileName: `${title}.mp3` },
+        'audio'
+      )
+    }
+    const result = await yts(match, 0, 1)
+    if (!result.length) return await message.send(`_Not result for_ *${match}*`)
+    const msg = generateList(
+      result.map(({ title, id, duration, author, album }) => ({
+        _id: `🆔&id\n`,
+        text: `🎵${title}\n🕒${duration}\n👤${author}\n📀${album}\n\n`,
+        id: `song https://www.youtube.com/watch?v=${id}`,
+      })),
+      `Searched ${match} and Found ${result.length} results\nsend 🆔 to download song.\n`,
+      message.jid,
+      message.participant,
+      message.id
+    )
+    return await message.send(msg.message, { quoted: message.data }, msg.type)
+    // return await message.send(
+    // 	genListMessage(
+    // 		result.map(({ title, id, duration }) => ({
+    // 			text: title,
+    // 			id: `song https://www.youtube.com/watch?v=${id}`,
+    // 			desc: duration,
+    // 		})),
+    // 		`Searched ${match}\nFound ${result.length} results`,
+    // 		'DOWNLOAD'
+    // 	),
+    // 	{},
+    // 	'list'
+    // )
+  }
+)
 
-async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-if (!q) return reply('*Please give me words to search e.g MALVIN-XMD WhatsApp bot*')
-try {
-let yts = require("yt-search")
-var arama = await yts(q);
-} catch(e) {
-    l(e)
-return await conn.sendMessage(from , { text: '*Error !!*' }, { quoted: mek } )
-}
-var mesaj = '';
-arama.all.map((video) => {
-mesaj += ' *🖲️' + video.title + '*\n🔗 ' + video.url + '\n\n'
-});
-await conn.sendMessage(from , { text:  mesaj }, { quoted: mek } )
-} catch (e) {
-    l(e)
-  reply('*Error !!*')
-}
-});
+bot(
+  {
+    pattern: 'video ?(.*)',
+    desc: 'download yt video',
+    type: 'download',
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
+    if (!match) return await message.send('*Example : video yt_url*')
+    const vid = ytIdRegex.exec(match)
+    if (!vid) {
+      const result = await yts(match)
+      if (!result.length) return await message.send(`_Not result for_ *${match}*`)
+      const msg = generateList(
+        result.map(({ title, id, duration, view }) => ({
+          text: `${title}\nduration : ${duration}\nviews : ${view}\n`,
+          id: `video https://www.youtube.com/watch?v=${id}`,
+        })),
+        `Searched ${match}\nFound ${result.length} results`,
+        message.jid,
+        message.participant,
+        message.id
+      )
+      return await message.send(msg.message, { quoted: message.data }, msg.type)
+    }
+    return await message.send(
+      await video(vid[1]),
+      { quoted: message.data, fileName: `${vid[1]}.mp4` },
+      'video'
+    )
+  }
+)
