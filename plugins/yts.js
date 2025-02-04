@@ -1,124 +1,87 @@
-const {
-  bot,
-  yts,
-  song,
-  video,
-  addAudioMetaData,
-  // genListMessage,
-  generateList,
-} = require('../lib/')
-const ytIdRegex =
-  /(?:http(?:s|):\/\/|)(?:(?:www\.|)youtube(?:\-nocookie|)\.com\/(?:watch\?.*(?:|\&)v=|embed|shorts\/|v\/)|youtu\.be\/)([-_0-9A-Za-z]{11})/
 
-bot(
-  {
-    pattern: 'yts ?(.*)',
-    desc: 'YT search',
-    type: 'search',
-  },
-  async (message, match) => {
-    if (!match) return await message.send('*Example : yts baymax*')
-    const vid = ytIdRegex.exec(match)
-    if (vid) {
-      const result = await yts(vid[1], true)
-      const { title, description, duration, view, published } = result[0]
-      return await message.send(
-        `*Title :* ${title}\n*Time :* ${duration}\n*Views :* ${view}\n*Publish :* ${published}\n*Desc :* ${description}`
-      )
+
+/*
+Please Give Credit 🙂❤️
+⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : ©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚
+*/
+//=============================================
+const { cmd, commands } = require('../command');
+const { fetchJson } = require('../lib/functions');
+const yts = require('yt-search');
+const domain = `https://manul-official-api-site-4a4d3aa3fe73.herokuapp.com`;
+//===== Api Link එක මට Message එකක් දාල ඉල්ලගන්න, +94 74 227 4855 සල්ලි ගන්න නෙවේ, කීයක් Use කරනවද දැනගන්න...❤️=====
+//=============================================
+cmd({
+    pattern: "song",
+    alias: ["audio"],
+    desc: 'Download Song / Video',
+    use: '.play Title',
+    react: "🎧",
+    category: 'download',
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        if (!q) return reply('Please provide a title.');
+        const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
+
+        let desc = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+        
+🏷️ *\`Title\` :* *_${data.title}_*
+
+👁 *\`Views\` ➜* *_${data.views}_*
+⏳ *\`TIME\` ➜* *_${data.timestamp}_*
+📆 *\`AGO\` ➜* *_${data.ago}_*
+📃 *\`DESCRIPTION\` ➜* *_${data.description}_*
+
+*_Reply This Message With Nambars_*
+
+*1. Audio*
+*2. Document*
+
+> *ꜱᴜʟᴠᴀ ᴍᴅ*`;
+
+        const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
+
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+    const response = await fetchJson(`${domain}/ytmp3-fix?url=${data.url}`);
+    
+    const downloadUrl = response.dl_link;
+
+//============Send Audio======================
+await conn.sendMessage(from,{audio:{url: downloadUrl },mimetype:"audio/mpeg",caption :"> *ꜱɪʟᴠᴀ ᴍᴅ*"},{quoted:mek})
+                        break;
+       
+                    case '2':               
+const responsex = await fetchJson(`${domain}/ytmp3-fix?url=${data.url}`);
+    
+    const downloadUrlx = response.dl_link;
+
+//=============Send Document=================
+await conn.sendMessage(from,{document:{url: downloadUrlx },mimetype:"audio/mpeg",fileName: data.title + ".mp3" ,caption :"> *ꜱɪʟᴠᴀ ᴍᴅ*"},{quoted:mek})
+                        break;
+ 
+                    default:
+                        reply("Invalid option. Please select a valid option.");
+                }
+
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request');
     }
-    const result = await yts(match)
-    const msg = result
-      .map(
-        ({ title, id, view, duration, published, author }) =>
-          `• *${title.trim()}*\n*Views :* ${view}\n*Time :* ${duration}\n*Author :* ${author}\n*Published :* ${published}\n*Url :* https://www.youtube.com/watch?v=${id}\n\n`
-      )
-      .join('')
-
-    return await message.send(msg.trim())
-  }
-)
-
-bot(
-  {
-    pattern: 'song ?(.*)',
-    desc: 'download yt song',
-    type: 'download',
-  },
-  async (message, match) => {
-    match = match || message.reply_message.text
-    if (!match) return await message.send('*Example : song indila love story/ yt link*')
-    const vid = ytIdRegex.exec(match)
-    if (vid) {
-      const _song = await song(vid[1])
-      if (!_song) return await message.send('*not found*')
-      const [result] = await yts(vid[1], true)
-      const { author, title, thumbnail } = result
-      const meta = title ? await addAudioMetaData(_song, title, author, '', thumbnail.url) : _song
-      return await message.send(
-        meta,
-        { quoted: message.data, mimetype: 'audio/mpeg', fileName: `${title}.mp3` },
-        'audio'
-      )
-    }
-    const result = await yts(match, 0, 1)
-    if (!result.length) return await message.send(`_Not result for_ *${match}*`)
-    const msg = generateList(
-      result.map(({ title, id, duration, author, album }) => ({
-        _id: `🆔&id\n`,
-        text: `🎵${title}\n🕒${duration}\n👤${author}\n📀${album}\n\n`,
-        id: `song https://www.youtube.com/watch?v=${id}`,
-      })),
-      `Searched ${match} and Found ${result.length} results\nsend 🆔 to download song.\n`,
-      message.jid,
-      message.participant,
-      message.id
-    )
-    return await message.send(msg.message, { quoted: message.data }, msg.type)
-    // return await message.send(
-    // 	genListMessage(
-    // 		result.map(({ title, id, duration }) => ({
-    // 			text: title,
-    // 			id: `song https://www.youtube.com/watch?v=${id}`,
-    // 			desc: duration,
-    // 		})),
-    // 		`Searched ${match}\nFound ${result.length} results`,
-    // 		'DOWNLOAD'
-    // 	),
-    // 	{},
-    // 	'list'
-    // )
-  }
-)
-
-bot(
-  {
-    pattern: 'video ?(.*)',
-    desc: 'download yt video',
-    type: 'download',
-  },
-  async (message, match) => {
-    match = match || message.reply_message.text
-    if (!match) return await message.send('*Example : video yt_url*')
-    const vid = ytIdRegex.exec(match)
-    if (!vid) {
-      const result = await yts(match)
-      if (!result.length) return await message.send(`_Not result for_ *${match}*`)
-      const msg = generateList(
-        result.map(({ title, id, duration, view }) => ({
-          text: `${title}\nduration : ${duration}\nviews : ${view}\n`,
-          id: `video https://www.youtube.com/watch?v=${id}`,
-        })),
-        `Searched ${match}\nFound ${result.length} results`,
-        message.jid,
-        message.participant,
-        message.id
-      )
-      return await message.send(msg.message, { quoted: message.data }, msg.type)
-    }
-    return await message.send(
-      await video(vid[1]),
-      { quoted: message.data, fileName: `${vid[1]}.mp4` },
-      'video'
-    )
-  }
-)
+});
+//=============©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚==========
