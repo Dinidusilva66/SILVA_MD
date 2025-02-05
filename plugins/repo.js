@@ -4,7 +4,7 @@ cmd({
     pattern: "repo",
     desc: "repo the bot",
     category: "main",
-    react: "💖",
+    react: "🔗",
     filename: __filename
 },
 
@@ -13,8 +13,8 @@ try{
 
 let dec = `*👋 Hello ${pushname}*
           
-_ꜱᴇɴᴅ ᴀ ᴅᴍ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴀᴅᴍɪɴ_
-ᴛᴏ ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ ꜱᴇɴᴅ .ɪɴꜰᴏ ᴄᴏᴍᴍᴀɴᴅ
+*_ꜱᴇɴᴅ ᴀ ᴅᴍ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴀᴅᴍɪɴ_*
+*ᴛᴏ ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ ꜱᴇɴᴅ .ɪɴꜰᴏ ᴄᴏᴍᴍᴀɴᴅ.*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
 `
