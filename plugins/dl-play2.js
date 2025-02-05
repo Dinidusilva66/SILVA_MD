@@ -65,50 +65,51 @@ cmd({
     _0x290209("❌ An error occurred while processing your request.");
   }
 });
+
 cmd({
-  'pattern': "play",
-  'alias': ["yta2", "ytplay2"],
-  'react': '▶️',
-  'desc': "Download audio from YouTube by searching for keywords.",
-  'category': "music",
-  'use': ".playx <keywords>",
-  'filename': __filename
-}, async (_0x1014d1, _0x44f57d, _0x281123, {
-  from: _0x22ebe3,
-  args: _0x445711,
-  reply: _0x377273
-}) => {
+  pattern: "play",
+  alias: ["youtubeplay", "ytplay"],
+  react: '▶️',
+  desc: "Download audio from YouTube by searching for keywords.",
+  category: "music",
+  use: ".play <keywords>",
+  filename: __filename
+}, 
+async (conn, mek, m, { from, args, reply }) => {
   try {
-    const _0x356223 = _0x445711.join(" ");
-    if (!_0x356223) {
-      return _0x377273("*Please provide a audio title or url*");
+    const query = args.join(" ");
+    if (!query) return reply("*❗ Please provide an audio title or YouTube URL.*");
+
+    reply("*🎧 Searching for your song...*");
+
+    const searchResult = await yts(query);
+    if (!searchResult.videos || searchResult.videos.length === 0) {
+      return reply(`❌ No results found for "${query}".`);
     }
-    _0x377273("*ꜱɪʟᴠᴀ ᴍᴅ ɪꜱ ꜱᴇᴀʀᴄʜɪɴɢ...*");
-    const _0x271698 = await yts(_0x356223);
-    if (!_0x271698.videos || _0x271698.videos.length === 0x0) {
-      return _0x377273("❌ No results found for \"" + _0x356223 + "\".");
+
+    const video = searchResult.videos[0];
+    const videoUrl = video.url;
+
+    // API Request
+    const apiURL = `https://api.giftedtech.web.id/api/download/dlmp3?apikey=gifted&url=${videoUrl}`;
+    const response = await axios.get(apiURL);
+
+    // API Response Validation
+    if (!response.data || !response.data.success || !response.data.result.download_url) {
+      return reply(`❌ Failed to fetch audio for "${query}".`);
     }
-    const _0x4360a6 = _0x271698.videos[0x0];
-    const _0x57ffbc = _0x4360a6.url;
-    const _0x3af9d4 = "https://api.giftedtech.web.id/api/download/dlmp3?apikey=gifted&url=" + _0x57ffbc;
-    const _0x1d283c = await axios.get(_0x3af9d4);
-    if (!_0x1d283c.data.success) {
-      return _0x377273("❌ Failed to fetch audio for \"" + _0x356223 + "\".");
-    }
-    const {
-      download_url: _0x3a6e3b
-    } = _0x1d283c.data.result;
-    await _0x1014d1.sendMessage(_0x22ebe3, {
-      'audio': {
-        'url': _0x3a6e3b
-      },
-      'mimetype': "audio/mp4",
-      'ptt': false
-    }, {
-      'quoted': _0x44f57d
-    });
-  } catch (_0x274411) {
-    console.error(_0x274411);
-    _0x377273("❌ An error occurred while processing your request.");
+
+    const downloadUrl = response.data.result.download_url;
+
+    // Send Audio
+    await conn.sendMessage(from, {
+      audio: { url: downloadUrl },
+      mimetype: "audio/mp4",
+      ptt: false
+    }, { quoted: mek });
+
+  } catch (error) {
+    console.error(error);
+    reply("❌ An unexpected error occurred while processing your request.");
   }
 });
