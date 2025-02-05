@@ -34,10 +34,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             const message = `            
 ꜱɪʟᴠᴀ ᴍᴅ ɪᴛɴ ɴᴇᴡꜱ 📰
             
-*News Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -76,10 +76,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             const message = `
 ꜱɪʟᴠᴀ ᴍᴅ ʜɪʀᴜ ɴᴇᴡꜱ ⭐
 
-*Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${link}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -117,10 +117,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             const message = `
 ꜱɪʟᴠᴀ ᴍᴅ ʟᴀɴᴋᴀᴅᴇᴇᴘᴀ ɴᴇᴡꜱ 📑
  
-*Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -161,10 +161,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             let message = `
 ꜱɪʟᴠᴀ ᴍᴅ ꜱɪʏᴀᴛʜᴀ ɴᴇᴡꜱ 📄
       
-*Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -209,10 +209,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             let message = `
 ꜱɪʟᴠᴀ ᴍᴅ ꜱɪʀᴀꜱᴀ ɴᴇᴡꜱ 🔺
         
-*Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -258,11 +258,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             let message = `
 ꜱɪʟᴠᴀ ᴍᴅ ᴀᴅᴀ ᴅᴇʀᴀɴᴀ ɴᴇᴡꜱ 🔊      
 
-*Title:* ${title}
-*Date:* ${date}
-*Time:* ${time}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -307,10 +306,10 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             let message = `
 ꜱɪʟᴠᴀ ᴍᴅ ʙʙᴄ ɴᴇᴡꜱ 🌌            
 
-*Title:* ${title}
-*Date:* ${date}
-*Description:* ${desc}
-*Read More:* ${url}
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
@@ -353,10 +352,11 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             // Crafting the message
             let message = `
 ꜱɪʟᴠᴀ ᴍᴅ ɢᴀɢᴀɴᴀ ɴᴇᴡꜱ ✈️
-   
-*Title:* ${title}
-*Description:* ${desc}
-*Read More:* ${url}
+
+*🏷️ News Title ➜* *_${title} | ${date}_*
+
+*Description ➜* *${desc}*
+*Read More ➜* *${url}*
 
 > *ꜱɪʟᴠᴀ ᴍᴅ*
             `;
