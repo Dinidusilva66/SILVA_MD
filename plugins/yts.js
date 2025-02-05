@@ -85,3 +85,81 @@ await conn.sendMessage(from,{document:{url: downloadUrlx },mimetype:"audio/mpeg"
     }
 });
 //=============©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚==========
+
+cmd({
+    pattern: "video",
+    alias: ["vid"],
+    desc: 'Download YouTube Video',
+    use: '.video Title',
+    react: "🎥",
+    category: 'download',
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, reply }) => {
+    try {
+        if (!q) return reply('කරුණාකර වීඩියෝ එකේ නමක් හෝ YouTube link එකක් දෙන්න.');
+
+        const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
+
+        let desc = `*ꜱɪʟᴠᴀ ᴍᴅ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+        
+🏷️ *\`Title\` :* *_${data.title}_*
+
+👁 *\`Views\` ➜* *_${data.views}_*
+⏳ *\`Duration\` ➜* *_${data.timestamp}_*
+📆 *\`Uploaded\` ➜* *_${data.ago}_*
+📃 *\`Description\` ➜* *_${data.description}_*
+
+*_Reply This Message With Number_*
+
+*1. Video (Normal)*
+*2. Video (Document)*`;
+
+        const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
+
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1': // Normal Video
+                        const response = await fetchJson(`${domain}/ytmp4?url=${data.url}`);
+                        const videoUrl = response.dl_link;
+
+                        await conn.sendMessage(from, { 
+                            video: { url: videoUrl }, 
+                            mimetype: "video/mp4", 
+                            caption: `🎬 *${data.title}*\n\n> *Downloaded via SILVA MD*` 
+                        }, { quoted: mek });
+                        break;
+
+                    case '2': // Video as Document
+                        const responseDoc = await fetchJson(`${domain}/ytmp4?url=${data.url}`);
+                        const videoDocUrl = responseDoc.dl_link;
+
+                        await conn.sendMessage(from, { 
+                            document: { url: videoDocUrl }, 
+                            mimetype: "video/mp4", 
+                            fileName: `${data.title}.mp4`,
+                            caption: `🎬 *${data.title}*\n\n> *Downloaded via SILVA MD*` 
+                        }, { quoted: mek });
+                        break;
+
+                    default:
+                        reply("❌ Invalid option. Please reply with 1 or 2.");
+                }
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
+        reply('⚠️ An error occurred while processing your request.');
+    }
+});
+//=============©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚==========
