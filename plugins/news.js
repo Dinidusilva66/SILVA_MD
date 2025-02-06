@@ -386,26 +386,26 @@ cmd({
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        // Fetching the news data from the API
+        // Fetching the subtitles data from the API
         const response = await fetchJson(`https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/venom`);
 
-        if (response.status) {
-            // Extracting data from the response
-            const title = response.data.result.title;
-            const link = response.data.result.link;
+        if (response.status && response.data.length > 0) {
+            // Extracting first result from the response
+            const title = response.data[0].title;
+            const link = response.data[0].link;
 
             // Crafting the message
             let message = `
 ${title}
 ${link}`;
 
-            // Send only the text message (Removed image sending part)
+            // Send only the text message
             await conn.sendMessage(from, { text: message }, { quoted: mek });
         } else {
-            reply('Sorry, there was an issue fetching the sub.');
+            reply('Sorry, there was an issue fetching the subtitles.');
         }
     } catch (e) {
         console.log(e);
-        reply(`Error: ${e}`);
+        reply(`Error: ${e.message}`);
     }
 });
