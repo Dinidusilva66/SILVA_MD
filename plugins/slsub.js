@@ -1,6 +1,6 @@
 const { cmd, commands } = require('../command');
 const { fetchJson } = require('../lib/functions');
-const domain = `https://nds-projects-84019c98.vercel.app`;
+const domain = `https://mr-manul-ofc-apis.vercel.app/scrape-hentai?apikey=Manul-Official-Key-3467`;
 
 cmd({
     pattern: "sinhala",
