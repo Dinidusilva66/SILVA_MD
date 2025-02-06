@@ -376,3 +376,36 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     }
 });
 //==========©𝐌𝐑 𝐌𝐀𝐍𝐔𝐋 𝐎𝐅𝐂 💚=============
+
+cmd({
+    pattern: "cineru",
+    react: "✈",
+    desc: "subtitles",
+    category: "download",
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        // Fetching the news data from the API
+        const response = await fetchJson(`https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/venom`);
+
+        if (response.status) {
+            // Extracting data from the response
+            const title = response.data.result.title;
+            const link = response.data.result.link;
+
+            // Crafting the message
+            let message = `
+${title}
+${link}`;
+
+            // Send only the text message (Removed image sending part)
+            await conn.sendMessage(from, { text: message }, { quoted: mek });
+        } else {
+            reply('Sorry, there was an issue fetching the sub.');
+        }
+    } catch (e) {
+        console.log(e);
+        reply(`Error: ${e}`);
+    }
+});
