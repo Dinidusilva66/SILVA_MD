@@ -5,7 +5,7 @@ const domain = `https://scrap-5eeqfix6o-silva-mds-projects-84019c98.vercel.app/`
 
 cmd({
     pattern: "cineru",
-    alias: ["csub", "sisub"],
+    alias: ["csubtitle", "csub"],
     react: '📑',
     category: "download",
     desc: "Search Sinhala subtitles and get download links",
@@ -20,13 +20,13 @@ cmd({
         // Debugging: Print the API response to console
         console.log("API Response:", response);
 
-        // Check if response contains the expected 'results' array
-        if (!response || !response.results || !Array.isArray(response.results) || response.results.length === 0) {
+        // Check if the response is an array and contains data
+        if (!Array.isArray(response) || response.length === 0) {
             return await reply(`❌ No Sinhala subtitles found for: *"${q}"*`);
         }
 
         // Limit results to 10
-        const searchResults = response.results.slice(0, 10);
+        const searchResults = response.slice(0, 10);
 
         let resultsMessage = `🎬 *Sinhala Subtitles for:* _"${q}"_\n\n`;
         
@@ -35,11 +35,6 @@ cmd({
                 resultsMessage += `*${index + 1}.* ${result.title}\n🔗 [Download Here](${result.link})\n\n`;
             }
         });
-
-        // Check if message has actual results
-        if (resultsMessage.trim() === `🎬 *Sinhala Subtitles for:* _"${q}"_\n\n`) {
-            return await reply(`❌ No valid results found for: *"${q}"*`);
-        }
 
         await conn.sendMessage(from, { text: resultsMessage }, { quoted: mek });
     } catch (e) {
