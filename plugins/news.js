@@ -384,7 +384,7 @@ cmd({
     category: "download",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, { from, quoted, reply }) => {
     try {
         // Fetching the subtitles data from the API
         const response = await fetchJson(`https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/venom`);
