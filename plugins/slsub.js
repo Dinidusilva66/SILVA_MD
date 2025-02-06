@@ -19,13 +19,13 @@ cmd({
         if (!isMe && !isOwner) return await reply('*මෙම විධානය ක්‍රියාත්මක කළ හැක්කේ Bot හිමිකරුට පමණි!*');
 
         // API URL එක dynamic ලෙස query parameter එක සකස් කිරීම
-        const apiUrl = `${domain}&query=${q}`;
+        const apiUrl = `${domain}&query=${encodeURIComponent(q)}`;
 
         // API එකෙන් JSON දත්ත ලබා ගැනීම
         const apiResponse = await fetchJson(apiUrl);
 
-        // API දත්ත වලින් අවශ්‍ය Array එක ලබාගන්න
-        const movieData = apiResponse || [];
+        // API response එකේ results field එකට access කරනවා
+        const movieData = apiResponse.results || [];
 
         // පරිශීලකයාගේ සෙවුමට අදාළ ප්‍රතිඵල තිබේදැයි පිරික්සන්න
         if (!Array.isArray(movieData) || movieData.length === 0) {
