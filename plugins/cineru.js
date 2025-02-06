@@ -1,5 +1,5 @@
 const { cmd, commands } = require('../command');
-const { fetchJson } = require('../lib/functions');
+const axios = require('axios');
 
 cmd({
     pattern: "cineru",
@@ -15,16 +15,18 @@ async (conn, mek, m, { args, reply }) => {
         }
 
         const query = encodeURIComponent(args.join(" "));
-        const domain = `https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/${query}`;
+        const url = `https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/${query}`;
         
-        const response = await fetchJson(domain);
+        // Fetch data using Axios
+        const response = await axios.get(url);
+        const data = response.data;
 
-        if (!response.status || !response.data.length) {
+        if (!data.status || !data.data.length) {
             return reply("⚠️ සෙවීම සඳහා කිසිවක් හමු නොවිනි!");
         }
 
         let message = `📄 *Sinhala Subtitles Results for: ${query}* 📄\n\n`;
-        response.data.slice(0, 10).forEach((item, index) => {
+        data.data.slice(0, 10).forEach((item, index) => {
             message += `*${index + 1}. ${item.title}*\n🔗 ${item.link}\n\n`;
         });
 
