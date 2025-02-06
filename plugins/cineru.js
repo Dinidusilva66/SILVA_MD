@@ -1,36 +1,36 @@
-const { cmd } = require('../command');
-const axios = require('axios');
+const { cmd, commands } = require('../command');
 const { fetchJson } = require('../lib/functions');
-
 
 cmd({
     pattern: "cineru",
-    alias: ["cinerusub", "csub"],
-    react: '📑',
-    category: "search",
-    desc: "Search Sinhala subtitles for movies",
+    react: "📄",
+    desc: "Get Sinhala subtitle links",
+    category: "owner",
     filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
+},
+async (conn, mek, m, { args, reply }) => {
     try {
-        if (!q || q.trim() === '') return await reply('*Please provide a movie name! (e.g., Sonic)*');
-
-        const response = await axios.get(`https://scrap-5eeqfix6o-silva-mds-projects-84019c98.vercel.app/search/${q}`);
-        const results = response.data;
-
-        if (!Array.isArray(results) || results.length === 0) {
-            return await reply(`❌ No Sinhala subtitles found for: *"${q}"*`);
+        if (!args[0]) {
+            return reply("📌 *Usage:* .cineru <movie-name>\n📝 *Example:* .cineru venom");
         }
 
-        let message = `📽️ *Sinhala Subtitles for* "${q}":\n\n`;
+        const query = encodeURIComponent(args.join(" "));
+        const domain = `https://scrap-6h1ddgv2m-silva-mds-projects-84019c98.vercel.app/search/${query}`;
+        
+        const response = await fetchJson(domain);
 
-        results.slice(0, 10).forEach((item, index) => {
-            message += `*${index + 1}.* ${item.title}\n🔗 Link: ${item.link}\n\n`;
+        if (!response.status || !response.data.length) {
+            return reply("⚠️ සෙවීම සඳහා කිසිවක් හමු නොවිනි!");
+        }
+
+        let message = `📄 *Sinhala Subtitles Results for: ${query}* 📄\n\n`;
+        response.data.slice(0, 10).forEach((item, index) => {
+            message += `*${index + 1}. ${item.title}*\n🔗 ${item.link}\n\n`;
         });
 
-        await conn.sendMessage(from, { text: message }, { quoted: mek });
-
+        reply(message);
     } catch (error) {
-        console.log(error);
-        reply(`🚫 Error fetching data!`);
+        console.error(error);
+        reply("❌ දෝෂයක් සිදු විය! නැවත උත්සාහ කරන්න.");
     }
 });
