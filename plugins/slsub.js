@@ -1,6 +1,9 @@
 const { cmd, commands } = require('../command');
 const { fetchJson } = require('../lib/functions');
-const domain = `https://mr-manul-ofc-apis.vercel.app/scrape-hentai?apikey=Manul-Official-Key-3467`;
+
+// API key එක සහ domain එක වෙනම const apikey ලෙස දක්වන්න
+const apikey = "Manul-Official-Key-3467";
+const domain = `https://mr-manul-ofc-apis.vercel.app/xnxxs?apikey=${apikey}`;
 
 cmd({
     pattern: "sinhala",
@@ -12,11 +15,14 @@ cmd({
 }, async (conn, m, mek, { from, isMe, isOwner, q, reply }) => {
     try {
         // පරිශීලකයා විසින් සෙවුම් පදය ඇතුළත් කර තිබේදැයි පිරික්සන්න
-        if (!q || q.trim() === '') return await reply('*කරුණාකර සෙවුම් පදයක් ලබාදෙන්න! (උදා: Sonic)*');
+        if (!q || q.trim() === '') return await reply('*කරුණාකර සෙවුම් පදයක් ලබාදෙන්න! (උදා: Mia)*');
         if (!isMe && !isOwner) return await reply('*මෙම විධානය ක්‍රියාත්මක කළ හැක්කේ Bot හිමිකරුට පමණි!*');
 
+        // API URL එක dynamic ලෙස query parameter එක සකස් කිරීම
+        const apiUrl = `${domain}&query=${q}`;
+
         // API එකෙන් JSON දත්ත ලබා ගැනීම
-        const apiResponse = await fetchJson(`${domain}/search/${q}`);
+        const apiResponse = await fetchJson(apiUrl);
 
         // API දත්ත වලින් අවශ්‍ය Array එක ලබාගන්න
         const movieData = apiResponse || [];
