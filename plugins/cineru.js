@@ -1,5 +1,7 @@
 const { cmd } = require('../command');
 const axios = require('axios');
+const { fetchJson } = require('../lib/functions');
+
 
 cmd({
     pattern: "cineru",
